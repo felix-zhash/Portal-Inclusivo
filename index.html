@@ -1,196 +1,211 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="h-full">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Educativo Inclusivo - TIC y Accesibilidad</title>
+    <title>Portal TIC & Educación Inclusiva | 3° Año Secundaria</title>
+    <!-- Tailwind CSS v4 -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <style>
         .picto-card { transition: all 0.2s ease; }
-        .picto-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .picto-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+<body class="bg-slate-100 text-slate-800 font-sans min-h-full flex flex-col">
 
-    <!-- Header -->
-    <header class="bg-indigo-700 text-white shadow-md">
-        <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
-            <div>
-                <h1 class="text-2xl md:text-3xl font-bold flex items-center gap-2">
-                    <span>💡</span> Portal TIC & Educación Inclusiva
-                </h1>
-                <p class="text-indigo-200 text-sm mt-1">Estrategias, actividades áulicas y herramientas de apoyo digital</p>
+    <!-- Header Institucional -->
+    <header class="bg-gradient-to-r from-indigo-800 to-indigo-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <span class="text-3xl bg-white/10 p-2.5 rounded-2xl shadow-inner">💡</span>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-bold tracking-tight">Portal TIC & Inclusión Educativa</h1>
+                    <p class="text-indigo-200 text-xs md:text-sm font-medium">Estrategias y Herramientas Digitales para 3.° Año de Secundaria</p>
+                </div>
             </div>
-            <nav class="mt-4 md:mt-0 flex gap-2 bg-indigo-800/60 p-1.5 rounded-xl">
-                <button onclick="switchTab('inicio')" id="btn-inicio" class="px-4 py-2 rounded-lg text-sm font-medium bg-white text-indigo-700 shadow-sm transition">Inicio</button>
-                <button onclick="switchTab('actividades')" id="btn-actividades" class="px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-indigo-600 transition">Actividades</button>
-                <button onclick="switchTab('picto')" id="btn-picto" class="px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-indigo-600 transition">PictoAprende</button>
-                <button onclick="switchTab('autores')" id="btn-autores" class="px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-indigo-600 transition">Autores & DUA</button>
+            <!-- Barra de Navegación (Pestañas estilo tic-ies9) -->
+            <nav class="flex flex-wrap justify-center gap-1.5 bg-indigo-950/60 p-1.5 rounded-xl border border-indigo-700/50">
+                <button onclick="switchTab('inicio')" id="btn-inicio" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-white text-indigo-900 shadow transition">Inicio & Propuesta</button>
+                <button onclick="switchTab('actividades')" id="btn-actividades" class="px-3.5 py-2 rounded-lg text-xs font-semibold text-indigo-100 hover:bg-indigo-800 transition">Actividades 3° Año</button>
+                <button onclick="switchTab('picto')" id="btn-picto" class="px-3.5 py-2 rounded-lg text-xs font-semibold text-indigo-100 hover:bg-indigo-800 transition">PictoAprende & Juego</button>
+                <button onclick="switchTab('autores')" id="btn-autores" class="px-3.5 py-2 rounded-lg text-xs font-semibold text-indigo-100 hover:bg-indigo-800 transition">Marco Teórico & DUA</button>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content Container -->
+    <!-- Contenido Principal -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-8">
 
-        <!-- TAB 1: INICIO -->
-        <section id="tab-inicio" class="space-y-8">
-            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-3xl p-8 shadow-xl">
-                <span class="bg-indigo-500/50 text-indigo-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Punto de partida</span>
-                <h2 class="text-3xl md:text-4xl font-extrabold mt-3">El problema no es aprender distinto</h2>
-                <p class="mt-2 text-indigo-100 text-lg max-w-3xl">La homogeneidad en la enseñanza crea barreras que limitan a los estudiantes. La tecnología y las herramientas digitales buscan quitar esas barreras para ampliar las formas de acceder, comunicar y expresar el conocimiento.</p>
+        <!-- PESTAÑA 1: INICIO Y PUNTO DE PARTIDA -->
+        <section id="tab-inicio" class="space-y-6">
+            <div class="bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 text-white rounded-3xl p-6 md:p-10 shadow-xl relative overflow-hidden">
+                <div class="relative z-10 max-w-3xl">
+                    <span class="bg-white/20 text-indigo-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Punto de partida en Secundaria</span>
+                    <h2 class="text-2xl md:text-4xl font-extrabold mt-3 leading-tight">El problema no es aprender distinto, sino las barreras del formato único</h2>
+                    <p class="mt-3 text-indigo-100 text-sm md:text-base leading-relaxed">En 3.° año de secundaria, la homogeneidad en la enseñanza crea obstáculos que limitan la autonomía. La tecnología y las herramientas digitales actúan como puentes para garantizar igualdad de oportunidades, eliminando barreras de acceso, comprensión y expresión.</p>
+                </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2"><span>🚧</span> Barreras Cotidianas</h3>
-                    <ul class="mt-4 space-y-3 text-slate-600">
-                        <li class="flex items-start gap-2"><span>•</span> Dificultad para acceder a contenidos, comprender consignas, comunicarse e intervenir en el aula.</li>
-                        <li class="flex items-start gap-2"><span>•</span> Formato único: propuestas pensadas para un solo modo de aprender que restringen la autonomía.</li>
+                    <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2"><span>🚧</span> Barreras Cotidianas en el Aula</h3>
+                    <ul class="mt-4 space-y-3 text-sm text-slate-600">
+                        <li class="flex items-start gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100"><span>•</span> Dificultad para acceder a textos complejos, consignas abstractas y participación activa en debates disciplinares.</li>
+                        <li class="flex items-start gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100"><span>•</span> Formatos de evaluación únicos que restringen la demostración real de saberes en adolescentes con diversos estilos cognitivos.</li>
                     </ul>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-xl font-bold text-indigo-600 flex items-center gap-2"><span>🎯</span> Cinco Objetivos Clave</h3>
-                    <ul class="mt-4 space-y-2 text-slate-600 text-sm">
-                        <li class="bg-indigo-50 p-2.5 rounded-xl font-medium text-indigo-900">1. Facilitar el acceso a los contenidos.</li>
-                        <li class="bg-indigo-50 p-2.5 rounded-xl font-medium text-indigo-900">2. Ofrecer distintas formas de comunicación y expresión.</li>
-                        <li class="bg-indigo-50 p-2.5 rounded-xl font-medium text-indigo-900">3. Respetar ritmos y estilos de aprendizaje.</li>
-                        <li class="bg-indigo-50 p-2.5 rounded-xl font-medium text-indigo-900">4. Promover participación y autonomía.</li>
-                        <li class="bg-indigo-50 p-2.5 rounded-xl font-medium text-indigo-900">5. Reducir barreras para aprender.</li>
+                    <h3 class="text-lg font-bold text-indigo-700 flex items-center gap-2"><span>🎯</span> Cinco Objetivos de Inclusión Digital</h3>
+                    <ul class="mt-3 space-y-2 text-xs md:text-sm text-slate-600 font-medium">
+                        <li class="bg-indigo-50/70 p-2.5 rounded-xl border border-indigo-100 text-indigo-900">1. Facilitar el acceso a contenidos curriculares complejos.</li>
+                        <li class="bg-indigo-50/70 p-2.5 rounded-xl border border-indigo-100 text-indigo-900">2. Ofrecer múltiples vías de comunicación y expresión juvenil.</li>
+                        <li class="bg-indigo-50/70 p-2.5 rounded-xl border border-indigo-100 text-indigo-900">3. Respetar ritmos y estilos de aprendizaje en la adolescencia.</li>
+                        <li class="bg-indigo-50/70 p-2.5 rounded-xl border border-indigo-100 text-indigo-900">4. Promover participación activa, autonomía y autogestión.</li>
+                        <li class="bg-indigo-50/70 p-2.5 rounded-xl border border-indigo-100 text-indigo-900">5. Reducir barreras metodológicas y de accesibilidad.</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 2: ACTIVIDADES ÁULICAS -->
+        <!-- PESTAÑA 2: ACTIVIDADES ÁULICAS PARA 3° AÑO -->
         <section id="tab-actividades" class="hidden space-y-6">
             <div class="border-b pb-4">
-                <h2 class="text-2xl font-bold text-slate-800">Propuestas Prácticas para Ejecutar en el Aula</h2>
-                <p class="text-slate-500">Ejemplos concretos adaptados para las tres áreas fundamentales.</p>
+                <h2 class="text-2xl font-bold text-slate-800">Propuestas Prácticas para 3.° Año de Secundaria</h2>
+                <p class="text-slate-500 text-sm">Secuencias didácticas inclusivas adaptadas a los contenidos curriculares del ciclo básico.</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-6">
                 <!-- Ciencias -->
                 <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
                     <div>
-                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Ciencias Naturales</span>
-                        <h3 class="text-lg font-bold text-slate-800 mt-3">El ciclo del agua multimodal</h3>
-                        <p class="text-sm text-slate-600 mt-2">Estudio de las etapas mediante esquemas combinados con pictogramas, códigos QR con audios explicativos grabados por el docente y actividades digitales de arrastrar y soltar.</p>
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Ciencias Naturales / Físicas</span>
+                        <h3 class="text-base font-bold text-slate-800 mt-3">Modelos Multimodales en Sistemas Vivos</h3>
+                        <p class="text-xs md:text-sm text-slate-600 mt-2">Estudio de procesos biológicos complejos mediante guías que combinan infografías con pictogramas científicos, códigos QR con explicaciones en audio del docente y simuladores interactivos.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t text-xs text-slate-500 font-medium">Objetivo: Diseñar materiales accesibles.</div>
+                    <div class="mt-6 pt-4 border-t text-xs text-slate-500 font-medium">Estrategia: Diseño de materiales accesibles y universales.</div>
                 </div>
                 <!-- Matemática -->
                 <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
                     <div>
-                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">Matemática</span>
-                        <h3 class="text-lg font-bold text-slate-800 mt-3">Problemas con soportes visuales</h3>
-                        <p class="text-sm text-slate-600 mt-2">Resolución de situaciones cotidianas con enunciados ampliados, síntesis de voz, bloques manipulables digitales y dictado por voz para explicar el razonamiento.</p>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">Matemática (3° Año)</span>
+                        <h3 class="text-base font-bold text-slate-800 mt-3">Álgebra y Resolución Visual</h3>
+                        <p class="text-xs md:text-sm text-slate-600 mt-2">Enunciados problemáticos cotidianos presentados con lectores de pantalla, bloques manipulables digitales y registro de justificaciones mediante dictado por voz.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t text-xs text-slate-500 font-medium">Objetivo: Respetar ritmos y ampliar interacción.</div>
+                    <div class="mt-6 pt-4 border-t text-xs text-slate-500 font-medium">Estrategia: Respeto por ritmos y tecnologías de asistencia.</div>
                 </div>
                 <!-- Lengua -->
                 <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
                     <div>
-                        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">Lengua</span>
-                        <h3 class="text-lg font-bold text-slate-800 mt-3">Cuentos con pictogramas y voz</h3>
-                        <p class="text-sm text-slate-600 mt-2">Recreación de un cuento corto usando traductores pictográficos (Pictotraductor) para expresar emociones y estaciones de radioteatro con conversión de voz.</p>
+                        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">Prácticas del Lenguaje</span>
+                        <h3 class="text-base font-bold text-slate-800 mt-3">Narrativas Juveniles y Pictogramas</h3>
+                        <p class="text-xs md:text-sm text-slate-600 mt-2">Análisis de textos literarios juveniles apoyados en traductores pictográficos (Pictotraductor) para mapear emociones de personajes y estaciones de producción oral asistida.</p>
                     </div>
-                    <div class="mt-6 pt-4 border-t text-xs text-slate-500 font-medium">Objetivo: Comunicar con pictogramas.</div>
+                    <div class="mt-6 pt-4 border-t text-xs text-slate-500 font-medium">Estrategia: Comunicación aumentativa y expresión plural.</div>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 3: PICTOAPRENDE (JUEGO Y TRADUCTOR) -->
+        <!-- PESTAÑA 3: PICTOAPRENDE & JUEGO MATEMÁTICO -->
         <section id="tab-picto" class="hidden space-y-6">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2"><span>🧩</span> PictoAprende & Pictotraductor</h2>
-                <p class="text-slate-600 text-sm mt-1">Escribe una frase, haz clic en las tarjetas táctiles o juega a resolver operaciones matemáticas visuales con frutas.</p>
-
-                <!-- Barra de Accesibilidad del Juego -->
-                <div class="flex flex-wrap items-center justify-between gap-4 mt-4 p-3 bg-slate-100 rounded-xl">
-                    <div class="flex items-center gap-2">
-                        <span class="text-xs font-bold text-slate-700 uppercase">Modo:</span>
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b pb-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2"><span>🧩</span> PictoAprende 3.° Año</h2>
+                        <p class="text-slate-500 text-sm">Traductor pictográfico con voz sintetizada y desafíos lúdicos de operaciones matemáticas con representación visual exacta.</p>
+                    </div>
+                    <!-- Controles de Modo -->
+                    <div class="flex items-center gap-2 bg-slate-100 p-1 rounded-xl">
                         <button onclick="setGameMode('translator')" id="mode-trans" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow">Traductor / Tablero</button>
                         <button onclick="setGameMode('mathgame')" id="mode-math" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50">Juego Matemático</button>
                     </div>
-                    <div class="flex items-center gap-3 text-sm">
-                        <label class="flex items-center gap-1 cursor-pointer select-none">
+                </div>
+
+                <!-- Barra de Accesibilidad -->
+                <div class="flex flex-wrap items-center justify-between gap-4 mt-4 p-3 bg-slate-50 rounded-xl border text-xs">
+                    <div class="flex items-center gap-2 text-slate-700 font-medium">
+                        <span>Configuración de Lectura:</span>
+                        <label class="flex items-center gap-1 cursor-pointer select-none bg-white px-2.5 py-1 rounded-lg border">
                             <input type="checkbox" id="capsToggle" onchange="toggleCaps()" class="rounded"> Mayúsculas (ABC)
                         </label>
-                        <select id="voiceSpeed" class="bg-white border rounded-lg px-2 py-1 text-xs">
-                            <option value="1">Velocidad Normal</option>
-                            <option value="0.75">Lenta</option>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-slate-600 font-medium">Velocidad de Voz:</span>
+                        <select id="voiceSpeed" class="bg-white border rounded-lg px-2.5 py-1 text-xs">
+                            <option value="1">Normal (1.0x)</option>
+                            <option value="0.75">Lenta (0.75x)</option>
                         </select>
                     </div>
                 </div>
 
-                <!-- SECCIÓN 1: TRADUCTOR Y TABLERO -->
+                <!-- VISTA 1: TRADUCTOR Y TABLERO TÁCTIL -->
                 <div id="section-translator" class="mt-6 space-y-4">
-                    <div class="flex gap-2">
-                        <input type="text" id="phraseInput" placeholder="Escribe una frase (ej: quiero manzana, feliz, estudiar)..." class="flex-grow border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <button onclick="translatePhrase()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm shadow">Traducir</button>
-                        <button onclick="speakPhrase()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl font-semibold text-sm shadow flex items-center gap-1">🔊 Escuchar</button>
-                        <button onclick="clearPhrase()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-3 py-2.5 rounded-xl text-sm">Borrar</button>
+                    <div class="flex flex-col sm:flex-row gap-2">
+                        <input type="text" id="phraseInput" placeholder="Escribe tu frase (ej: quiero resolver, calcular, ciencia, función)..." class="flex-grow border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50/50">
+                        <button onclick="translatePhrase()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-xl font-semibold text-sm shadow transition">Traducir</button>
+                        <button onclick="speakPhrase()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-xl font-semibold text-sm shadow flex items-center justify-center gap-1.5 transition">🔊 Escuchar</button>
+                        <button onclick="clearPhrase()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-3 rounded-xl text-sm font-semibold transition">Borrar</button>
                     </div>
 
                     <!-- Panel de Pictogramas Generados -->
-                    <div id="pictoOutput" class="min-h-[130px] bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-4 flex flex-wrap gap-3 items-center justify-center">
-                        <span class="text-slate-400 text-sm italic">Los pictogramas aparecerán aquí al escribir o tocar las categorías de abajo...</span>
+                    <div id="pictoOutput" class="min-h-[140px] bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-4 flex flex-wrap gap-3 items-center justify-center">
+                        <span class="text-slate-400 text-sm italic">Los pictogramas se visualizarán aquí al escribir o pulsar los elementos del tablero...</span>
                     </div>
 
-                    <!-- Tablero Táctil de Categorías -->
+                    <!-- Tablero Táctil Rápido -->
                     <div class="pt-4 border-t">
-                        <h3 class="text-sm font-bold text-slate-700 mb-2">Tablero Táctil Rápido:</h3>
+                        <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">Tablero de Comunicación Rápida:</h3>
                         <div id="touchBoard" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2"></div>
                     </div>
                 </div>
 
-                <!-- SECCIÓN 2: JUEGO MATEMÁTICO CON FRUTAS -->
+                <!-- VISTA 2: JUEGO MATEMÁTICO CON FRUTAS Y NÚMEROS -->
                 <div id="section-mathgame" class="hidden mt-6 space-y-6">
-                    <div class="bg-indigo-50 p-6 rounded-2xl border border-indigo-100 text-center">
-                        <span class="bg-indigo-200 text-indigo-800 text-xs font-bold px-3 py-1 rounded-full">Desafío lúdico</span>
-                        <h3 id="mathQuestion" class="text-xl font-bold text-slate-800 mt-3">Calcula el resultado visual:</h3>
+                    <div class="bg-indigo-50/80 p-6 md:p-8 rounded-2xl border border-indigo-100 text-center max-w-2xl mx-auto shadow-inner">
+                        <span class="bg-indigo-200 text-indigo-900 text-xs font-bold px-3 py-1 rounded-full">Desafío Lúdico de 3° Año</span>
+                        <h3 id="mathQuestion" class="text-lg md:text-xl font-bold text-slate-800 mt-3">Calcula el resultado visual:</h3>
                         
-                        <!-- Representación Gráfica con emojis/frutas exactas -->
-                        <div id="mathVisualContainer" class="flex justify-center items-center gap-4 my-6 text-3xl md:text-4xl min-h-[80px] bg-white p-4 rounded-xl shadow-inner">
-                            <!-- Se llena por JS -->
+                        <!-- Representación Gráfica con emojis exactos -->
+                        <div id="mathVisualContainer" class="flex flex-wrap justify-center items-center gap-3 my-6 text-3xl md:text-4xl min-h-[90px] bg-white p-5 rounded-2xl shadow-sm border border-indigo-50">
+                            <!-- Dinámico por JS -->
                         </div>
 
-                        <!-- Opciones de respuesta -->
-                        <div id="mathOptions" class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-xl mx-auto">
-                            <!-- Se llena por JS -->
+                        <!-- Opciones de selección gráfica -->
+                        <div id="mathOptions" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                            <!-- Dinámico por JS -->
                         </div>
-                        <p id="mathFeedback" class="mt-4 font-bold text-sm min-h-[24px]"></p>
-                        <button onclick="generateMathProblem()" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-xs font-semibold shadow">Siguiente Desafío 🔄</button>
+                        
+                        <p id="mathFeedback" class="mt-4 font-bold text-sm min-h-[28px]"></p>
+                        
+                        <button onclick="generateMathProblem()" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow transition">Siguiente Desafío 🔄</button>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- TAB 4: MARCO TEÓRICO Y AUTORES -->
+        <!-- PESTAÑA 4: MARCO TEÓRICO Y AUTORES -->
         <section id="tab-autores" class="hidden space-y-6">
             <div class="border-b pb-4">
                 <h2 class="text-2xl font-bold text-slate-800">Marco Teórico y Autores Pedagógicos</h2>
-                <p class="text-slate-500">Fundamentación científica y pedagógica de la propuesta inclusiva.</p>
+                <p class="text-slate-500 text-sm">Sustento científico de las adaptaciones inclusivas en el nivel secundario.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-lg font-bold text-indigo-700">Meyer, Rose y Gordon (DUA)</h3>
-                    <p class="text-sm text-slate-600 mt-2">Creadores del <strong>Diseño Universal para el Aprendizaje (DUA)</strong> en el CAST. Sostienen que las barreras están en el currículo rígido y proponen tres principios: múltiples formas de representación, de expresión y de implicación.</p>
+                    <h3 class="text-base font-bold text-indigo-700">Meyer, Rose y Gordon (Diseño Universal - DUA)</h3>
+                    <p class="text-xs md:text-sm text-slate-600 mt-2">Fundamentan que las barreras no residen en el estudiante de secundaria, sino en un currículo inflexible. Proponen múltiples formas de representación, expresión e implicación.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-lg font-bold text-indigo-700">Mel Ainscow</h3>
-                    <p class="text-sm text-slate-600 mt-2">Referente internacional en educación inclusiva. Su teoría se centra en <strong>identificar y eliminar barreras</strong> de acceso, participación y aprendizaje para transformar la escuela en función de la diversidad.</p>
+                    <h3 class="text-base font-bold text-indigo-700">Mel Ainscow (Reducción de Barreras)</h3>
+                    <p class="text-xs md:text-sm text-slate-600 mt-2">Su perspectiva enfatiza la necesidad constante de identificar y remover barreras de acceso y participación, transformando la escuela secundaria para acoger la diversidad.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-lg font-bold text-indigo-700">Lev Vygotsky</h3>
-                    <p class="text-sm text-slate-600 mt-2">Psicólogo histórico-cultural. El uso de pictogramas, tableros y sintetizadores de voz materializa el concepto de <strong>mediación y andamiaje</strong>, actuando como prótesis cognitivas para el desarrollo.</p>
+                    <h3 class="text-base font-bold text-indigo-700">Lev Vygotsky (Mediación y Andamiaje)</h3>
+                    <p class="text-xs md:text-sm text-slate-600 mt-2">Los sistemas aumentativos, pictogramas y apoyos digitales actúan como herramientas de mediación cultural que potencian el desarrollo cognitivo en adolescentes.</p>
                 </div>
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-lg font-bold text-indigo-700">Sistemas de Comunicación (CAA)</h3>
-                    <p class="text-sm text-slate-600 mt-2">Validación fonoaudiológica y pedagógica de los Sistemas Aumentativos y Alternativos de Comunicación para facilitar puentes semánticos en el aula.</p>
+                    <h3 class="text-base font-bold text-indigo-700">Sistemas de Comunicación (CAA)</h3>
+                    <p class="text-xs md:text-sm text-slate-600 mt-2">Validación técnica y pedagógica de soportes visuales y traductores instantáneos para garantizar puentes semánticos efectivos en el aula inclusiva.</p>
                 </div>
             </div>
         </section>
@@ -199,18 +214,18 @@
 
     <!-- Footer -->
     <footer class="bg-white border-t mt-12 py-6 text-center text-xs text-slate-500">
-        Portal Educativo Inclusivo &copy; 2026 — Diseñado bajo principios de Accesibilidad Universal y DUA.
+        Portal Educativo Inclusivo — 3.° Año de Secundaria &copy; 2026.
     </footer>
 
-    <!-- Script de Interactividad -->
+    <!-- Lógica JavaScript Interactiva -->
     <script>
         function switchTab(tabId) {
             ['inicio', 'actividades', 'picto', 'autores'].forEach(t => {
                 document.getElementById('tab-' + t).classList.add('hidden');
-                document.getElementById('btn-' + t).className = "px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-indigo-600 transition";
+                document.getElementById('btn-' + t).className = "px-3.5 py-2 rounded-lg text-xs font-semibold text-indigo-100 hover:bg-indigo-800 transition";
             });
             document.getElementById('tab-' + tabId).classList.remove('hidden');
-            document.getElementById('btn-' + tabId).className = "px-4 py-2 rounded-lg text-sm font-medium bg-white text-indigo-700 shadow-sm transition";
+            document.getElementById('btn-' + tabId).className = "px-3.5 py-2 rounded-lg text-xs font-semibold bg-white text-indigo-900 shadow transition";
         }
 
         function setGameMode(mode) {
@@ -228,27 +243,26 @@
             }
         }
 
-        // Diccionario simulado de pictogramas
         const pictoDictionary = {
             "manzana": { text: "Manzana", emoji: "🍎", bg: "bg-red-50 border-red-200 text-red-700" },
             "bananas": { text: "Bananas", emoji: "🍌", bg: "bg-yellow-50 border-yellow-200 text-yellow-800" },
             "banana": { text: "Banana", emoji: "🍌", bg: "bg-yellow-50 border-yellow-200 text-yellow-800" },
             "feliz": { text: "Feliz", emoji: "😊", bg: "bg-emerald-50 border-emerald-200 text-emerald-700" },
-            "triste": { text: "Triste", emoji: "😢", bg: "bg-blue-50 border-blue-200 text-blue-700" },
-            "quiero": { text: "Quiero", emoji: "🙋‍♂️", bg: "bg-indigo-50 border-indigo-200 text-indigo-700" },
-            "estudiar": { text: "Estudiar", emoji: "📚", bg: "bg-purple-50 border-purple-200 text-purple-700" },
+            "resolver": { text: "Resolver", emoji: "✏️", bg: "bg-indigo-50 border-indigo-200 text-indigo-700" },
+            "calcular": { text: "Calcular", emoji: "🔢", bg: "bg-blue-50 border-blue-200 text-blue-700" },
+            "ciencia": { text: "Ciencia", emoji: "🔬", bg: "bg-emerald-50 border-emerald-200 text-emerald-700" },
+            "funcion": { text: "Función", emoji: "📈", bg: "bg-purple-50 border-purple-200 text-purple-700" },
             "agua": { text: "Agua", emoji: "💧", bg: "bg-cyan-50 border-cyan-200 text-cyan-700" },
-            "escuela": { text: "Escuela", emoji: "🏫", bg: "bg-amber-50 border-amber-200 text-amber-700" },
-            "suma": { text: "Sumar", emoji: "➕", bg: "bg-slate-100 border-slate-300 text-slate-800" }
+            "escuela": { text: "Escuela", emoji: "🏫", bg: "bg-amber-50 border-amber-200 text-amber-700" }
         };
 
         const touchItems = [
-            { word: "quiero", label: "Quiero", emoji: "🙋‍♂️" },
-            { word: "manzana", label: "Manzana", emoji: "🍎" },
+            { word: "resolver", label: "Resolver", emoji: "✏️" },
+            { word: "calcular", label: "Calcular", emoji: "🔢" },
             { word: "bananas", label: "Bananas", emoji: "🍌" },
-            { word: "feliz", label: "Feliz", emoji: "😊" },
-            { word: "estudiar", label: "Estudiar", emoji: "📚" },
-            { word: "agua", label: "Agua", emoji: "💧" }
+            { word: "manzana", label: "Manzana", emoji: "🍎" },
+            { word: "ciencia", label: "Ciencia", emoji: "🔬" },
+            { word: "funcion", label: "Función", emoji: "📈" }
         ];
 
         let isCaps = false;
@@ -256,7 +270,7 @@
         function initTouchBoard() {
             const board = document.getElementById('touchBoard');
             board.innerHTML = touchItems.map(item => `
-                <button onclick="addPictoWord('${item.word}')" class="p-3 bg-white border border-slate-200 rounded-xl hover:bg-indigo-50 transition flex flex-col items-center gap-1 shadow-sm">
+                <button onclick="addPictoWord('${item.word}')" class="p-2.5 bg-white border border-slate-200 rounded-xl hover:bg-indigo-50 transition flex flex-col items-center gap-1 shadow-sm">
                     <span class="text-2xl">${item.emoji}</span>
                     <span class="text-xs font-semibold text-slate-700">${item.label}</span>
                 </button>
@@ -278,7 +292,7 @@
             const text = document.getElementById('phraseInput').value.toLowerCase().trim();
             const output = document.getElementById('pictoOutput');
             if (!text) {
-                output.innerHTML = `<span class="text-slate-400 text-sm italic">Los pictogramas aparecerán aquí al escribir o tocar las categorías de abajo...</span>`;
+                output.innerHTML = `<span class="text-slate-400 text-sm italic">Los pictogramas se visualizarán aquí al escribir o pulsar los elementos del tablero...</span>`;
                 return;
             }
 
@@ -309,30 +323,28 @@
             translatePhrase();
         }
 
-        // Lógica del juego matemático visual con frutas
+        // Lógica del juego matemático visual adaptado
         let currentCorrectAnswer = 0;
 
         function generateMathProblem() {
-            const num1 = Math.floor(Math.random() * 4) + 1; // 1 a 4
-            const num2 = Math.floor(Math.random() * 4) + 1; // 1 a 4
+            const num1 = Math.floor(Math.random() * 4) + 1;
+            const num2 = Math.floor(Math.random() * 4) + 1;
             currentCorrectAnswer = num1 + num2;
             const fruitEmoji = Math.random() > 0.5 ? "🍎" : "🍌";
             const fruitName = fruitEmoji === "🍎" ? "manzanas" : "bananas";
 
             document.getElementById('mathQuestion').innerText = `¿Cuánto es ${num1} ${fruitName} + ${num2} ${fruitName}?`;
 
-            // Representación gráfica exacta
             let visualHTML = `
-                <div class="flex items-center gap-1">${fruitEmoji.repeat(num1)} <span class="text-xs font-bold text-slate-500">(${num1})</span></div>
-                <span class="text-indigo-600 font-bold">+</span>
-                <div class="flex items-center gap-1">${fruitEmoji.repeat(num2)} <span class="text-xs font-bold text-slate-500">(${num2})</span></div>
-                <span class="text-indigo-600 font-bold">=</span>
+                <div class="flex items-center gap-1 bg-slate-50 px-3 py-2 rounded-xl border">${fruitEmoji.repeat(num1)} <span class="text-xs font-bold text-slate-500">(${num1})</span></div>
+                <span class="text-indigo-600 font-extrabold">+</span>
+                <div class="flex items-center gap-1 bg-slate-50 px-3 py-2 rounded-xl border">${fruitEmoji.repeat(num2)} <span class="text-xs font-bold text-slate-500">(${num2})</span></div>
+                <span class="text-indigo-600 font-extrabold">=</span>
                 <span class="text-slate-400">❓</span>
             `;
             document.getElementById('mathVisualContainer').innerHTML = visualHTML;
             document.getElementById('mathFeedback').innerText = '';
 
-            // Generar opciones de respuesta (con distractores cercanos)
             let options = [currentCorrectAnswer];
             while(options.length < 4) {
                 let wrong = Math.floor(Math.random() * 8) + 1;
@@ -342,8 +354,9 @@
 
             const optionsContainer = document.getElementById('mathOptions');
             optionsContainer.innerHTML = options.map(opt => `
-                <button onclick="checkMathAnswer(${opt})" class="p-4 bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-xl font-extrabold text-xl text-slate-700 shadow-sm transition">
-                    ${opt} ${fruitEmoji.repeat(opt <= 5 ? opt : 1)}
+                <button onclick="checkMathAnswer(${opt})" class="p-3 bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-xl font-bold text-lg text-slate-700 shadow-sm transition flex flex-col items-center justify-center gap-1">
+                    <span>${opt}</span>
+                    <span class="text-xs opacity-80">${fruitEmoji.repeat(opt <= 5 ? opt : 1)}</span>
                 </button>
             `).join('');
         }
@@ -351,13 +364,12 @@
         function checkMathAnswer(selected) {
             const feedback = document.getElementById('mathFeedback');
             if(selected === currentCorrectAnswer) {
-                feedback.innerHTML = `<span class="text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">🎉 ¡Excelente! ¡Respuesta correcta!</span>`;
+                feedback.innerHTML = `<span class="text-emerald-700 bg-emerald-50 px-4 py-2 rounded-xl border border-emerald-200 block shadow-sm">🎉 ¡Excelente razonamiento! Resultado correcto.</span>`;
             } else {
-                feedback.innerHTML = `<span class="text-rose-600 bg-rose-50 px-3 py-1.5 rounded-lg border border-rose-200">❌ Intenta de nuevo contando las frutas.</span>`;
+                feedback.innerHTML = `<span class="text-rose-700 bg-rose-50 px-4 py-2 rounded-xl border border-rose-200 block shadow-sm">❌ Intenta nuevamente contando las unidades gráficas.</span>`;
             }
         }
 
-        // Inicializar tablero al cargar
         initTouchBoard();
     </script>
 </body>
