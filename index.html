@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Tecnología para Incluir</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -19,429 +18,82 @@ font-family:'Poppins',sans-serif;
 }
 
 body{
-background:#f4f7fb;
-color:#333;
+background:#eef3f9;
+display:flex;
+min-height:100vh;
 }
 
-header{
-background:linear-gradient(135deg,#1565c0,#42a5f5);
+/* MENU */
+
+.sidebar{
+width:260px;
+background:#1565c0;
 color:white;
-padding:70px 20px;
+padding:20px;
+position:fixed;
+height:100%;
+overflow:auto;
+}
+
+.logo{
 text-align:center;
+margin-bottom:30px;
 }
 
-header h1{
-font-size:3rem;
-margin-bottom:15px;
+.logo h2{
+font-size:22px;
 }
 
-header p{
-font-size:1.1rem;
-max-width:900px;
-margin:auto;
+.logo p{
+font-size:12px;
+opacity:.8;
 }
 
-.btn{
-display:inline-block;
-margin-top:20px;
-padding:12px 30px;
-background:white;
-color:#1565c0;
-font-weight:bold;
+.menu{
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.menu a{
 text-decoration:none;
-border-radius:50px;
+color:white;
+padding:14px;
+border-radius:12px;
 transition:.3s;
 }
 
-.btn:hover{
-transform:translateY(-3px);
+.menu a:hover{
+background:rgba(255,255,255,.2);
 }
 
-.progreso{
-margin:40px auto;
-max-width:1000px;
-background:white;
-padding:25px;
-border-radius:20px;
-box-shadow:0 6px 15px rgba(0,0,0,.08);
-}
+/* CONTENIDO */
 
-.barra{
+.main{
+margin-left:260px;
+padding:30px;
 width:100%;
-height:22px;
-background:#ddd;
+}
+
+.banner{
+background:linear-gradient(135deg,#1565c0,#42a5f5);
+color:white;
+padding:40px;
 border-radius:20px;
-overflow:hidden;
 }
 
-.avance{
-height:100%;
-width:0%;
-background:linear-gradient(to right,#2ecc71,#27ae60);
-transition:1s;
+.banner h1{
+margin-bottom:10px;
 }
 
-.porcentaje{
-text-align:center;
-font-size:1.3rem;
-font-weight:bold;
-margin-top:10px;
-}
-
-.modulos{
-max-width:1300px;
-margin:auto;
-padding:40px 20px;
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:25px;
+gap:20px;
+margin-top:25px;
 }
 
 .card{
 background:white;
 padding:25px;
-border-radius:20px;
-box-shadow:0 6px 15px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-.card h3{
-color:#1565c0;
-margin-bottom:10px;
-}
-
-.card p{
-margin-bottom:15px;
-}
-
-.card a{
-display:inline-block;
-text-decoration:none;
-background:#1565c0;
-color:white;
-padding:10px 20px;
-border-radius:10px;
-}
-
-.info{
-background:white;
-padding:60px 20px;
-margin-top:30px;
-}
-
-.info h2{
-text-align:center;
-margin-bottom:20px;
-color:#1565c0;
-}
-
-.info p{
-max-width:1100px;
-margin:auto;
-line-height:1.8;
-}
-
-.footer{
-background:#1565c0;
-padding:30px;
-text-align:center;
-color:white;
-margin-top:50px;
-}
-
-.badges{
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-margin-top:30px;
-}
-
-.badge{
-background:white;
-padding:15px 25px;
-border-radius:15px;
-box-shadow:0 5px 12px rgba(0,0,0,.1);
-}
-
-.quiz{
-max-width:800px;
-margin:50px auto;
-padding:30px;
-background:white;
-border-radius:20px;
-box-shadow:0 6px 15px rgba(0,0,0,.08);
-text-align:center;
-}
-
-.quiz button{
-padding:12px 20px;
-margin:10px;
-border:none;
-border-radius:10px;
-background:#1565c0;
-color:white;
-cursor:pointer;
-}
-
-.resultado{
-margin-top:20px;
-font-size:1.2rem;
-font-weight:bold;
-}
-
-</style>
-
-</head>
-
-<body>
-
-<header>
-
-<h1>💡 Tecnología para Incluir</h1>
-
-<p>
-
-Diseño de un entorno digital accesible para favorecer la inclusión,
-la autonomía y el aprendizaje mediante herramientas tecnológicas
-e inteligencia artificial.
-
-</p>
-
-<a class="btn" href="#modulos">
-Comenzar recorrido
-</a>
-
-</header>
-
-<section class="progreso">
-
-<h2>📊 Progreso del estudiante</h2>
-
-<div class="barra">
-<div class="avance" id="avance"></div>
-</div>
-
-<div class="porcentaje" id="porcentaje">
-0%
-</div>
-
-</section>
-
-<section class="badges">
-
-<div class="badge">
-🥉 Explorador Digital
-</div>
-
-<div class="badge">
-🥈 Diseñador Inclusivo
-</div>
-
-<div class="badge">
-🥇 Especialista en Accesibilidad
-</div>
-
-</section>
-
-<section id="modulos" class="modulos">
-
-<div class="card">
-<h3>🔎 Módulo 1</h3>
-<h4>Detectives de Barreras</h4>
-<p>
-Identifica barreras visuales, auditivas,
-cognitivas y tecnológicas.
-</p>
-<a href="detectives.html">
-Ingresar
-</a>
-</div>
-
-<div class="card">
-<h3>✅ Módulo 2</h3>
-<h4>¿Es Accesible?</h4>
-<p>
-Evalúa recursos y determina si cumplen
-criterios de accesibilidad.
-</p>
-<a href="accesibilidad.html">
-Ingresar
-</a>
-</div>
-
-<div class="card">
-<h3>🤖 Módulo 3</h3>
-<h4>Laboratorio IA</h4>
-<p>
-Aprende a utilizar IA para adaptar
-contenidos educativos.
-</p>
-<a href="laboratorioIA.html">
-Ingresar
-</a>
-</div>
-
-<div class="card">
-<h3>📝 Módulo 4</h3>
-<h4>Adaptador Inclusivo</h4>
-<p>
-Transforma materiales complejos en
-contenidos accesibles.
-</p>
-<a href="adaptador.html">
-Ingresar
-</a>
-</div>
-
-<div class="card">
-<h3>🎮 Módulo 5</h3>
-<h4>Escape Room Inclusivo</h4>
-<p>
-Resuelve desafíos relacionados con
-accesibilidad e IA.
-</p>
-<a href="escape.html">
-Ingresar
-</a>
-</div>
-
-<div class="card">
-<h3>💬 Módulo 6</h3>
-<h4>Debate con IA</h4>
-<p>
-Analiza críticamente el uso de la IA
-en la educación.
-</p>
-<a href="debate.html">
-Ingresar
-</a>
-</div>
-
-<div class="card">
-<h3>🧠 Módulo 7</h3>
-<h4>Quiz Gamificado</h4>
-<p>
-Pon a prueba tus conocimientos.
-</p>
-<a href="quiz.html">
-Ingresar
-</a>
-</div>
-
-<div class="card">
-<h3>🏆 Módulo 8</h3>
-<h4>Proyecto Final</h4>
-<p>
-Diseña un recurso educativo accesible.
-</p>
-<a href="proyecto.html">
-Ingresar
-</a>
-</div>
-
-</section>
-
-<section class="quiz">
-
-<h2>
-Prueba rápida
-</h2>
-
-<p>
-¿Qué barrera presenta un video sin subtítulos?
-</p>
-
-<button onclick="verificar('correcto')">
-Auditiva
-</button>
-
-<button onclick="verificar('incorrecto')">
-Visual
-</button>
-
-<button onclick="verificar('incorrecto')">
-Tecnológica
-</button>
-
-<div id="resultado" class="resultado"></div>
-
-</section>
-
-<section class="info">
-
-<h2>
-📚 Acerca del Proyecto
-</h2>
-
-<p>
-
-Este entorno se fundamenta en el Diseño Universal para el Aprendizaje (DUA),
-los principios multimedia de Richard Mayer y el modelo TPACK.
-
-Su objetivo es eliminar barreras de aprendizaje mediante la creación
-de materiales accesibles, promoviendo la ciudadanía digital,
-la inclusión educativa y el uso crítico de herramientas de Inteligencia Artificial.
-
-Los estudiantes trabajarán colaborativamente utilizando Google Classroom,
-Google Drive, WhatsApp, netbooks escolares y asistentes de IA como
-ChatGPT y Gemini.
-
-</p>
-
-</section>
-
-<footer class="footer">
-
-<h3>
-Tecnología para Incluir
-</h3>
-
-<p>
-Informática Educativa · Educación Secundaria · 3º Año
-</p>
-
-<p>
-Aprender para incluir. Incluir para transformar.
-</p>
-
-</footer>
-
-<script>
-
-let progreso = localStorage.getItem("progreso") || 15;
-
-document.getElementById("avance").style.width =
-progreso + "%";
-
-document.getElementById("porcentaje").innerHTML =
-progreso + "% completado";
-
-function verificar(respuesta){
-
-const resultado =
-document.getElementById("resultado");
-
-if(respuesta==="correcto"){
-
-resultado.innerHTML=
-"✅ Correcto. Un video sin subtítulos genera una barrera auditiva.";
-
-}
-else{
-
-resultado.innerHTML=
-"❌ Revisa nuevamente la situación.";
-
-}
-
-}
-
-</script>
-
-</body>
-</html>
+border
