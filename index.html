@@ -23,7 +23,7 @@
                     <p class="text-indigo-200 text-xs md:text-sm font-medium">Estrategias y Herramientas Digitales para 3.° Año de Secundaria</p>
                 </div>
             </div>
-            <!-- Barra de Navegación (Pestañas estilo tic-ies9) -->
+            <!-- Barra de Navegación -->
             <nav class="flex flex-wrap justify-center gap-1.5 bg-indigo-950/60 p-1.5 rounded-xl border border-indigo-700/50">
                 <button onclick="switchTab('inicio')" id="btn-inicio" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-white text-indigo-900 shadow transition">Inicio & Propuesta</button>
                 <button onclick="switchTab('actividades')" id="btn-actividades" class="px-3.5 py-2 rounded-lg text-xs font-semibold text-indigo-100 hover:bg-indigo-800 transition">Actividades 3° Año</button>
@@ -67,40 +67,78 @@
             </div>
         </section>
 
-        <!-- PESTAÑA 2: ACTIVIDADES ÁULICAS PARA 3° AÑO -->
+        <!-- PESTAÑA 2: ACTIVIDADES ÁULICAS DETALLADAS PARA 3° AÑO -->
         <section id="tab-actividades" class="hidden space-y-6">
             <div class="border-b pb-4">
-                <h2 class="text-2xl font-bold text-slate-800">Propuestas Prácticas para 3.° Año de Secundaria</h2>
-                <p class="text-slate-500 text-sm">Secuencias didácticas inclusivas adaptadas a los contenidos curriculares del ciclo básico.</p>
+                <h2 class="text-2xl font-bold text-slate-800">Propuestas Prácticas y Recursos para 3.° Año</h2>
+                <p class="text-slate-500 text-sm">Secuencias didácticas ejecutables en el aula con recursos digitales, consignas adaptadas y múltiples formas de expresión.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6">
-                <!-- Ciencias -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
-                    <div>
-                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1 rounded-full">Ciencias Naturales / Físicas</span>
-                        <h3 class="text-base font-bold text-slate-800 mt-3">Modelos Multimodales en Sistemas Vivos</h3>
-                        <p class="text-xs md:text-sm text-slate-600 mt-2">Estudio de procesos biológicos complejos mediante guías que combinan infografías con pictogramas científicos, códigos QR con explicaciones en audio del docente y simuladores interactivos.</p>
+            <div class="space-y-6">
+                <!-- CIENCIAS NATURALES -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                    <div class="flex items-center gap-3 border-b pb-4">
+                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">Ciencias Naturales</span>
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Tema: El ciclo biogeoquímico del agua y estados de la materia</h3>
                     </div>
-                    <div class="mt-6 pt-4 border-t text-xs text-slate-500 font-medium">Estrategia: Diseño de materiales accesibles y universales.</div>
+                    <div class="grid md:grid-cols-3 gap-6 mt-6">
+                        <div class="bg-slate-50 p-4 rounded-xl border">
+                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>📄</span> Material Accesible</h4>
+                            <p class="text-xs text-slate-600 mt-2">Guía corta que combina texto esquemático con infografías visuales, pictogramas de procesos (evaporación, condensación, precipitación) e instrucciones de lectura guiada.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border">
+                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🔗</span> Recursos Digitales & Audio</h4>
+                            <p class="text-xs text-slate-600 mt-2">Códigos QR impresos en la guía vinculados a audios explicativos grabados por el docente y simuladores interactivos web de cambio de fase.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border">
+                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🎤</span> Expresión Alumno</h4>
+                            <p class="text-xs text-slate-600 mt-2">El estudiante puede demostrar lo aprendido eligiendo entre redactar un informe breve, usar dictado por voz o armar un esquema interactivo.</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- Matemática -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
-                    <div>
-                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full">Matemática (3° Año)</span>
-                        <h3 class="text-base font-bold text-slate-800 mt-3">Álgebra y Resolución Visual</h3>
-                        <p class="text-xs md:text-sm text-slate-600 mt-2">Enunciados problemáticos cotidianos presentados con lectores de pantalla, bloques manipulables digitales y registro de justificaciones mediante dictado por voz.</p>
+
+                <!-- MATEMÁTICA -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                    <div class="flex items-center gap-3 border-b pb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">Matemática (3° Año)</span>
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Tema: Resolución de problemas y operaciones con soportes visuales</h3>
                     </div>
-                    <div class="mt-6 pt-4 border-t text-xs text-slate-500 font-medium">Estrategia: Respeto por ritmos y tecnologías de asistencia.</div>
+                    <div class="grid md:grid-cols-3 gap-6 mt-6">
+                        <div class="bg-slate-50 p-4 rounded-xl border">
+                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🔍</span> Presentación Adaptada</h4>
+                            <p class="text-xs text-slate-600 mt-2">Enunciados problemáticos cotidianos presentados en formato digital ampliado, con lectores de pantalla y bloques manipulables gráficos.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border">
+                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>➕</span> Interacción Dinámica</h4>
+                            <p class="text-xs text-slate-600 mt-2">Uso del módulo interactivo <em>PictoAprende</em> con representación visual de cantidades (ej. unidades de frutas o elementos numéricos) para conteo y resolución gráfica.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border">
+                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🗣️</span> Justificación Oral</h4>
+                            <p class="text-xs text-slate-600 mt-2">Permitir al adolescente explicar su razonamiento matemático paso a paso utilizando herramientas de dictado por voz ("Primero sumé...").</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- Lengua -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 flex flex-col justify-between">
-                    <div>
-                        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full">Prácticas del Lenguaje</span>
-                        <h3 class="text-base font-bold text-slate-800 mt-3">Narrativas Juveniles y Pictogramas</h3>
-                        <p class="text-xs md:text-sm text-slate-600 mt-2">Análisis de textos literarios juveniles apoyados en traductores pictográficos (Pictotraductor) para mapear emociones de personajes y estaciones de producción oral asistida.</p>
+
+                <!-- LENGUA -->
+                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+                    <div class="flex items-center gap-3 border-b pb-4">
+                        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">Prácticas del Lenguaje</span>
+                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Tema: Análisis de narrativas juveniles y emociones con pictogramas</h3>
                     </div>
-                    <div class="mt-6 pt-4 border-t text-xs text-slate-500 font-medium">Estrategia: Comunicación aumentativa y expresión plural.</div>
+                    <div class="grid md:grid-cols-3 gap-6 mt-6">
+                        <div class="bg-slate-50 p-4 rounded-xl border">
+                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>📖</span> Lectura Compartida</h4>
+                            <p class="text-xs text-slate-600 mt-2">Lectura de cuento corto con subtitulado proyectado, lupas digitales y apoyo de síntesis de voz en tiempo real para estudiantes con dificultades de lectura.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border">
+                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🧩</span> Soporte Pictográfico</h4>
+                            <p class="text-xs text-slate-600 mt-2">Uso directo del traductor visual integrado para mapear sentimientos de los personajes, verbos y acciones clave del texto literario.</p>
+                        </div>
+                        <div class="bg-slate-50 p-4 rounded-xl border">
+                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🎙️</span> Producción Creativa</h4>
+                            <p class="text-xs text-slate-600 mt-2">Creación de un radioteatro o síntesis en audio del desenlace utilizando conversores de texto a voz y tableros de comunicación.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
