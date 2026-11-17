@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>¿Es Accesible?</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef3f9;
+padding:20px;
+}
+
+header{
+background:linear-gradient(135deg,#1565c0,#42a5f5);
+color:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+margin-bottom:30px;
+}
+
+.tarjeta{
+background:white;
+padding:25px;
+border-radius:20px;
+margin-bottom:25px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.tarjeta h2{
+color:#1565c0;
+margin-bottom:10px;
+}
+
+.icono{
+font-size:60px;
+text-align:center;
+margin:20px 0;
+}
+
+.botones{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.botones button{
+border:none;
+padding:12px 18px;
+border-radius:10px;
+cursor:pointer;
+color:white;
+font-size:16px;
+}
+
+.si{
+background:#27ae60;
+}
+
+.no{
+background:#e74c3c;
+}
+
+.resultado{
+margin-top:15px;
+font-weight:bold;
+}
+
+.panel{
+background:white;
+padding:20px;
+border-radius:20px;
+margin-bottom:25px;
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.barra{
+height:25px;
+background:#ddd;
+border-radius:30px;
+overflow:hidden;
+}
+
+.avance{
+height:100%;
+width:0%;
+background:#2ecc71;
+transition:.5s;
+}
+
+.final{
+display:none;
+background:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+}
+
+.volver{
+display:inline-block;
+margin-top:15px;
+padding:12px 18px;
+background:#1565c0;
+color:white;
+border-radius:10px;
+text-decoration:none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>♿ ¿Es Accesible?</h1>
+
+<p>
+Analiza cada recurso y decide si cumple criterios de accesibilidad.
+</p>
+
+</header>
+
+<div class="panel">
+
+<h3>Progreso</h3>
+
+<div class="barra">
+<div class="avance" id="avance"></div>
+</div>
+
+<br>
+
+<h2 id="puntaje">0 / 5</h2>
+
+</div>
+
+<!-- TARJETA 1 -->
+
+<div class="tarjeta">
+
+<h2>Video educativo</h2>
+
+<div class="icono">🎥</div>
+
+<p>
+Video con subtítulos y audio claro.
+</p>
+
+<div class="botones">
+<button class="si" onclick="responder(this,1)">
+✅ Accesible
+</button>
+
+<button class="no" onclick="responder(this,0)">
+❌ No accesible
+</button>
+</div>
+
+<div class="resultado"></div>
+
+</div>
+
+<!-- TARJETA 2 -->
+
+<div class="tarjeta">
+
+<h2>Documento escolar</h2>
+
+<div class="icono">📄</div>
+
+<p>
+Texto largo sin títulos ni organización visual.
+</p>
+
+<div class="botones">
+<button class="si" onclick="responder(this,0)">
+✅ Accesible
+</button>
+
+<button class="no" onclick="responder(this,1)">
+❌ No accesible
+</button>
+</div>
+
+<div class="resultado"></div>
+
+</div>
+
+<!-- TARJETA 3 -->
+
+<div class="tarjeta">
+
+<h2>Infografía</h2>
+
+<div class="icono">📊</div>
+
+<p>
+Usa únicamente colores para diferenciar información.
+</p>
+
+<div class="botones">
+<button class="si" onclick="responder(this,0)">
+✅ Accesible
+</button>
+
+<button class="no" onclick="responder(this,1)">
+❌ No accesible
+</button>
+</div>
+
+<div class="resultado"></div>
+
+</div>
+
+<!-- TARJETA 4 -->
+
+<div class="tarjeta">
+
+<h2>Podcast</h2>
+
+<div class="icono">🎧</div>
+
+<p>
+Posee transcripción descargable.
+</p>
+
+<div class="botones">
+<button class="si" onclick="responder(this,1)">
+✅ Accesible
+</button>
+
+<button class="no" onclick="responder(this,0)">
+❌ No accesible
+</button>
+</div>
+
+<div class="resultado"></div>
+
+</div>
+
+<!-- TARJETA 5 -->
+
+<div class="tarjeta">
+
+<h2>Actividad online</h2>
+
+<div class="icono">📶</div>
+
+<p>
+Requiere conexión permanente de alta velocidad.
+</p>
+
+<div class="botones">
+<button class="si" onclick="responder(this,0)">
+✅ Accesible
+</button>
+
+<button class="no" onclick="responder(this,1)">
+❌ No accesible
+</button>
+</div>
+
+<div class="resultado"></div>
+
+</div>
+
+<div class="final" id="final">
+
+<h2>🏆 ¡Actividad completada!</h2>
+
+<p id="mensajeFinal"></p>
+
+<a href="index.html" class="volver">
+🏠 Volver al Dashboard
+</a>
+
+</div>
+
+<script>
+
+let puntos = 0;
+let respondidas = 0;
+
+function responder(btn, correcta){
+
+let tarjeta = btn.closest(".tarjeta");
+
+if(tarjeta.dataset.ok){
+return;
+}
+
+tarjeta.dataset.ok=true;
+
+respondidas++;
+
+let resultado =
+tarjeta.querySelector(".resultado");
+
+if(correcta){
+
+puntos++;
+
+resultado.innerHTML =
+"✅ Correcto. Has identificado correctamente el criterio de accesibilidad.";
+
+resultado.style.color =
+"green";
+
+}else{
+
+resultado.innerHTML =
+"❌ Revisa los principios de accesibilidad digital.";
+
+resultado.style.color =
+"red";
+
+}
+
+actualizar();
+
+}
+
+function actualizar(){
+
+document.getElementById("puntaje")
+.innerHTML = puntos + " / 5";
+
+let progreso =
+(respondidas / 5) * 100;
+
+document.getElementById("avance")
+.style.width =
+progreso + "%";
+
+if(respondidas === 5){
+
+document.getElementById("final")
+.style.display = "block";
+
+let mensaje;
+
+if(puntos >= 4){
+
+mensaje =
+"🥇 Excelente trabajo. Comprendes muy bien los principios de accesibilidad.";
+
+}else if(puntos >= 3){
+
+mensaje =
+"🥈 Buen trabajo. Vas desarrollando una mirada inclusiva.";
+
+}else{
+
+mensaje =
+"🥉 Sigue practicando. La accesibilidad se aprende identificando barreras.";
+
+}
+
+document.getElementById("mensajeFinal")
+.innerHTML = mensaje;
+
+localStorage.setItem("progreso",40);
+
+let total =
+parseInt(localStorage.getItem("puntos") || 0);
+
+localStorage.setItem(
+"puntos",
+total + 10
+);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
