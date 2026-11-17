@@ -1,414 +1,447 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal TIC & Educación Inclusiva | 3° Año Secundaria</title>
-    <!-- Tailwind CSS v4 -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style>
-        .picto-card { transition: all 0.2s ease; }
-        .picto-card:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
-    </style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tecnología para Incluir</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f7fb;
+color:#333;
+}
+
+header{
+background:linear-gradient(135deg,#1565c0,#42a5f5);
+color:white;
+padding:70px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:3rem;
+margin-bottom:15px;
+}
+
+header p{
+font-size:1.1rem;
+max-width:900px;
+margin:auto;
+}
+
+.btn{
+display:inline-block;
+margin-top:20px;
+padding:12px 30px;
+background:white;
+color:#1565c0;
+font-weight:bold;
+text-decoration:none;
+border-radius:50px;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+}
+
+.progreso{
+margin:40px auto;
+max-width:1000px;
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 6px 15px rgba(0,0,0,.08);
+}
+
+.barra{
+width:100%;
+height:22px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+}
+
+.avance{
+height:100%;
+width:0%;
+background:linear-gradient(to right,#2ecc71,#27ae60);
+transition:1s;
+}
+
+.porcentaje{
+text-align:center;
+font-size:1.3rem;
+font-weight:bold;
+margin-top:10px;
+}
+
+.modulos{
+max-width:1300px;
+margin:auto;
+padding:40px 20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 6px 15px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+color:#1565c0;
+margin-bottom:10px;
+}
+
+.card p{
+margin-bottom:15px;
+}
+
+.card a{
+display:inline-block;
+text-decoration:none;
+background:#1565c0;
+color:white;
+padding:10px 20px;
+border-radius:10px;
+}
+
+.info{
+background:white;
+padding:60px 20px;
+margin-top:30px;
+}
+
+.info h2{
+text-align:center;
+margin-bottom:20px;
+color:#1565c0;
+}
+
+.info p{
+max-width:1100px;
+margin:auto;
+line-height:1.8;
+}
+
+.footer{
+background:#1565c0;
+padding:30px;
+text-align:center;
+color:white;
+margin-top:50px;
+}
+
+.badges{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.badge{
+background:white;
+padding:15px 25px;
+border-radius:15px;
+box-shadow:0 5px 12px rgba(0,0,0,.1);
+}
+
+.quiz{
+max-width:800px;
+margin:50px auto;
+padding:30px;
+background:white;
+border-radius:20px;
+box-shadow:0 6px 15px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.quiz button{
+padding:12px 20px;
+margin:10px;
+border:none;
+border-radius:10px;
+background:#1565c0;
+color:white;
+cursor:pointer;
+}
+
+.resultado{
+margin-top:20px;
+font-size:1.2rem;
+font-weight:bold;
+}
+
+</style>
+
 </head>
-<body class="bg-slate-100 text-slate-800 font-sans min-h-full flex flex-col">
 
-    <!-- Header Institucional -->
-    <header class="bg-gradient-to-r from-indigo-800 to-indigo-900 text-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div class="flex items-center gap-3">
-                <span class="text-3xl bg-white/10 p-2.5 rounded-2xl shadow-inner">💡</span>
-                <div>
-                    <h1 class="text-xl md:text-2xl font-bold tracking-tight">Portal TIC & Inclusión Educativa</h1>
-                    <p class="text-indigo-200 text-xs md:text-sm font-medium">Estrategias y Herramientas Digitales para 3.° Año de Secundaria</p>
-                </div>
-            </div>
-            <!-- Barra de Navegación -->
-            <nav class="flex flex-wrap justify-center gap-1.5 bg-indigo-950/60 p-1.5 rounded-xl border border-indigo-700/50">
-                <button onclick="switchTab('inicio')" id="btn-inicio" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-white text-indigo-900 shadow transition">Inicio & Propuesta</button>
-                <button onclick="switchTab('actividades')" id="btn-actividades" class="px-3.5 py-2 rounded-lg text-xs font-semibold text-indigo-100 hover:bg-indigo-800 transition">Actividades 3° Año</button>
-                <button onclick="switchTab('picto')" id="btn-picto" class="px-3.5 py-2 rounded-lg text-xs font-semibold text-indigo-100 hover:bg-indigo-800 transition">PictoAprende & Juego</button>
-                <button onclick="switchTab('autores')" id="btn-autores" class="px-3.5 py-2 rounded-lg text-xs font-semibold text-indigo-100 hover:bg-indigo-800 transition">Marco Teórico & DUA</button>
-            </nav>
-        </div>
-    </header>
+<body>
 
-    <!-- Contenido Principal -->
-    <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-8">
+<header>
 
-        <!-- PESTAÑA 1: INICIO Y PUNTO DE PARTIDA -->
-        <section id="tab-inicio" class="space-y-6">
-            <div class="bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700 text-white rounded-3xl p-6 md:p-10 shadow-xl relative overflow-hidden">
-                <div class="relative z-10 max-w-3xl">
-                    <span class="bg-white/20 text-indigo-100 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Punto de partida en Secundaria</span>
-                    <h2 class="text-2xl md:text-4xl font-extrabold mt-3 leading-tight">El problema no es aprender distinto, sino las barreras del formato único</h2>
-                    <p class="mt-3 text-indigo-100 text-sm md:text-base leading-relaxed">En 3.° año de secundaria, la homogeneidad en la enseñanza crea obstáculos que limitan la autonomía. La tecnología y las herramientas digitales actúan como puentes para garantizar igualdad de oportunidades, eliminando barreras de acceso, comprensión y expresión.</p>
-                </div>
-            </div>
+<h1>💡 Tecnología para Incluir</h1>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2"><span>🚧</span> Barreras Cotidianas en el Aula</h3>
-                    <ul class="mt-4 space-y-3 text-sm text-slate-600">
-                        <li class="flex items-start gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100"><span>•</span> Dificultad para acceder a textos complejos, consignas abstractas y participación activa en debates disciplinares.</li>
-                        <li class="flex items-start gap-2 bg-slate-50 p-3 rounded-xl border border-slate-100"><span>•</span> Formatos de evaluación únicos que restringen la demostración real de saberes en adolescentes con diversos estilos cognitivos.</li>
-                    </ul>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-lg font-bold text-indigo-700 flex items-center gap-2"><span>🎯</span> Cinco Objetivos de Inclusión Digital</h3>
-                    <ul class="mt-3 space-y-2 text-xs md:text-sm text-slate-600 font-medium">
-                        <li class="bg-indigo-50/70 p-2.5 rounded-xl border border-indigo-100 text-indigo-900">1. Facilitar el acceso a contenidos curriculares complejos.</li>
-                        <li class="bg-indigo-50/70 p-2.5 rounded-xl border border-indigo-100 text-indigo-900">2. Ofrecer múltiples vías de comunicación y expresión juvenil.</li>
-                        <li class="bg-indigo-50/70 p-2.5 rounded-xl border border-indigo-100 text-indigo-900">3. Respetar ritmos y estilos de aprendizaje en la adolescencia.</li>
-                        <li class="bg-indigo-50/70 p-2.5 rounded-xl border border-indigo-100 text-indigo-900">4. Promover participación activa, autonomía y autogestión.</li>
-                        <li class="bg-indigo-50/70 p-2.5 rounded-xl border border-indigo-100 text-indigo-900">5. Reducir barreras metodológicas y de accesibilidad.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+<p>
 
-        <!-- PESTAÑA 2: ACTIVIDADES ÁULICAS DETALLADAS PARA 3° AÑO -->
-        <section id="tab-actividades" class="hidden space-y-6">
-            <div class="border-b pb-4">
-                <h2 class="text-2xl font-bold text-slate-800">Propuestas Prácticas y Recursos para 3.° Año</h2>
-                <p class="text-slate-500 text-sm">Secuencias didácticas ejecutables en el aula con recursos digitales, consignas adaptadas y múltiples formas de expresión.</p>
-            </div>
+Diseño de un entorno digital accesible para favorecer la inclusión,
+la autonomía y el aprendizaje mediante herramientas tecnológicas
+e inteligencia artificial.
 
-            <div class="space-y-6">
-                <!-- CIENCIAS NATURALES -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
-                    <div class="flex items-center gap-3 border-b pb-4">
-                        <span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">Ciencias Naturales</span>
-                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Tema: El ciclo biogeoquímico del agua y estados de la materia</h3>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6 mt-6">
-                        <div class="bg-slate-50 p-4 rounded-xl border">
-                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>📄</span> Material Accesible</h4>
-                            <p class="text-xs text-slate-600 mt-2">Guía corta que combina texto esquemático con infografías visuales, pictogramas de procesos (evaporación, condensación, precipitación) e instrucciones de lectura guiada.</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-xl border">
-                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🔗</span> Recursos Digitales & Audio</h4>
-                            <p class="text-xs text-slate-600 mt-2">Códigos QR impresos en la guía vinculados a audios explicativos grabados por el docente y simuladores interactivos web de cambio de fase.</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-xl border">
-                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🎤</span> Expresión Alumno</h4>
-                            <p class="text-xs text-slate-600 mt-2">El estudiante puede demostrar lo aprendido eligiendo entre redactar un informe breve, usar dictado por voz o armar un esquema interactivo.</p>
-                        </div>
-                    </div>
-                </div>
+</p>
 
-                <!-- MATEMÁTICA -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
-                    <div class="flex items-center gap-3 border-b pb-4">
-                        <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">Matemática (3° Año)</span>
-                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Tema: Resolución de problemas y operaciones con soportes visuales</h3>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6 mt-6">
-                        <div class="bg-slate-50 p-4 rounded-xl border">
-                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🔍</span> Presentación Adaptada</h4>
-                            <p class="text-xs text-slate-600 mt-2">Enunciados problemáticos cotidianos presentados en formato digital ampliado, con lectores de pantalla y bloques manipulables gráficos.</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-xl border">
-                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>➕</span> Interacción Dinámica</h4>
-                            <p class="text-xs text-slate-600 mt-2">Uso del módulo interactivo <em>PictoAprende</em> con representación visual de cantidades (ej. unidades de frutas o elementos numéricos) para conteo y resolución gráfica.</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-xl border">
-                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🗣️</span> Justificación Oral</h4>
-                            <p class="text-xs text-slate-600 mt-2">Permitir al adolescente explicar su razonamiento matemático paso a paso utilizando herramientas de dictado por voz ("Primero sumé...").</p>
-                        </div>
-                    </div>
-                </div>
+<a class="btn" href="#modulos">
+Comenzar recorrido
+</a>
 
-                <!-- LENGUA -->
-                <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
-                    <div class="flex items-center gap-3 border-b pb-4">
-                        <span class="bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-wide">Prácticas del Lenguaje</span>
-                        <h3 class="text-lg md:text-xl font-bold text-slate-800">Tema: Análisis de narrativas juveniles y emociones con pictogramas</h3>
-                    </div>
-                    <div class="grid md:grid-cols-3 gap-6 mt-6">
-                        <div class="bg-slate-50 p-4 rounded-xl border">
-                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>📖</span> Lectura Compartida</h4>
-                            <p class="text-xs text-slate-600 mt-2">Lectura de cuento corto con subtitulado proyectado, lupas digitales y apoyo de síntesis de voz en tiempo real para estudiantes con dificultades de lectura.</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-xl border">
-                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🧩</span> Soporte Pictográfico</h4>
-                            <p class="text-xs text-slate-600 mt-2">Uso directo del traductor visual integrado para mapear sentimientos de los personajes, verbos y acciones clave del texto literario.</p>
-                        </div>
-                        <div class="bg-slate-50 p-4 rounded-xl border">
-                            <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5"><span>🎙️</span> Producción Creativa</h4>
-                            <p class="text-xs text-slate-600 mt-2">Creación de un radioteatro o síntesis en audio del desenlace utilizando conversores de texto a voz y tableros de comunicación.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+</header>
 
-        <!-- PESTAÑA 3: PICTOAPRENDE & JUEGO MATEMÁTICO -->
-        <section id="tab-picto" class="hidden space-y-6">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b pb-4">
-                    <div>
-                        <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2"><span>🧩</span> PictoAprende 3.° Año</h2>
-                        <p class="text-slate-500 text-sm">Traductor pictográfico con voz sintetizada y desafíos lúdicos de operaciones matemáticas con representación visual exacta.</p>
-                    </div>
-                    <!-- Controles de Modo -->
-                    <div class="flex items-center gap-2 bg-slate-100 p-1 rounded-xl">
-                        <button onclick="setGameMode('translator')" id="mode-trans" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow">Traductor / Tablero</button>
-                        <button onclick="setGameMode('mathgame')" id="mode-math" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50">Juego Matemático</button>
-                    </div>
-                </div>
+<section class="progreso">
 
-                <!-- Barra de Accesibilidad -->
-                <div class="flex flex-wrap items-center justify-between gap-4 mt-4 p-3 bg-slate-50 rounded-xl border text-xs">
-                    <div class="flex items-center gap-2 text-slate-700 font-medium">
-                        <span>Configuración de Lectura:</span>
-                        <label class="flex items-center gap-1 cursor-pointer select-none bg-white px-2.5 py-1 rounded-lg border">
-                            <input type="checkbox" id="capsToggle" onchange="toggleCaps()" class="rounded"> Mayúsculas (ABC)
-                        </label>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <span class="text-slate-600 font-medium">Velocidad de Voz:</span>
-                        <select id="voiceSpeed" class="bg-white border rounded-lg px-2.5 py-1 text-xs">
-                            <option value="1">Normal (1.0x)</option>
-                            <option value="0.75">Lenta (0.75x)</option>
-                        </select>
-                    </div>
-                </div>
+<h2>📊 Progreso del estudiante</h2>
 
-                <!-- VISTA 1: TRADUCTOR Y TABLERO TÁCTIL -->
-                <div id="section-translator" class="mt-6 space-y-4">
-                    <div class="flex flex-col sm:flex-row gap-2">
-                        <input type="text" id="phraseInput" placeholder="Escribe tu frase (ej: quiero resolver, calcular, ciencia, función)..." class="flex-grow border rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-slate-50/50">
-                        <button onclick="translatePhrase()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-xl font-semibold text-sm shadow transition">Traducir</button>
-                        <button onclick="speakPhrase()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-xl font-semibold text-sm shadow flex items-center justify-center gap-1.5 transition">🔊 Escuchar</button>
-                        <button onclick="clearPhrase()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-3 rounded-xl text-sm font-semibold transition">Borrar</button>
-                    </div>
+<div class="barra">
+<div class="avance" id="avance"></div>
+</div>
 
-                    <!-- Panel de Pictogramas Generados -->
-                    <div id="pictoOutput" class="min-h-[140px] bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-4 flex flex-wrap gap-3 items-center justify-center">
-                        <span class="text-slate-400 text-sm italic">Los pictogramas se visualizarán aquí al escribir o pulsar los elementos del tablero...</span>
-                    </div>
+<div class="porcentaje" id="porcentaje">
+0%
+</div>
 
-                    <!-- Tablero Táctil Rápido -->
-                    <div class="pt-4 border-t">
-                        <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider mb-2.5">Tablero de Comunicación Rápida:</h3>
-                        <div id="touchBoard" class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-6 gap-2"></div>
-                    </div>
-                </div>
+</section>
 
-                <!-- VISTA 2: JUEGO MATEMÁTICO CON FRUTAS Y NÚMEROS -->
-                <div id="section-mathgame" class="hidden mt-6 space-y-6">
-                    <div class="bg-indigo-50/80 p-6 md:p-8 rounded-2xl border border-indigo-100 text-center max-w-2xl mx-auto shadow-inner">
-                        <span class="bg-indigo-200 text-indigo-900 text-xs font-bold px-3 py-1 rounded-full">Desafío Lúdico de 3° Año</span>
-                        <h3 id="mathQuestion" class="text-lg md:text-xl font-bold text-slate-800 mt-3">Calcula el resultado visual:</h3>
-                        
-                        <!-- Representación Gráfica con emojis exactos -->
-                        <div id="mathVisualContainer" class="flex flex-wrap justify-center items-center gap-3 my-6 text-3xl md:text-4xl min-h-[90px] bg-white p-5 rounded-2xl shadow-sm border border-indigo-50">
-                            <!-- Dinámico por JS -->
-                        </div>
+<section class="badges">
 
-                        <!-- Opciones de selección gráfica -->
-                        <div id="mathOptions" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                            <!-- Dinámico por JS -->
-                        </div>
-                        
-                        <p id="mathFeedback" class="mt-4 font-bold text-sm min-h-[28px]"></p>
-                        
-                        <button onclick="generateMathProblem()" class="mt-4 bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow transition">Siguiente Desafío 🔄</button>
-                    </div>
-                </div>
+<div class="badge">
+🥉 Explorador Digital
+</div>
 
-            </div>
-        </section>
+<div class="badge">
+🥈 Diseñador Inclusivo
+</div>
 
-        <!-- PESTAÑA 4: MARCO TEÓRICO Y AUTORES -->
-        <section id="tab-autores" class="hidden space-y-6">
-            <div class="border-b pb-4">
-                <h2 class="text-2xl font-bold text-slate-800">Marco Teórico y Autores Pedagógicos</h2>
-                <p class="text-slate-500 text-sm">Sustento científico de las adaptaciones inclusivas en el nivel secundario.</p>
-            </div>
+<div class="badge">
+🥇 Especialista en Accesibilidad
+</div>
 
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-base font-bold text-indigo-700">Meyer, Rose y Gordon (Diseño Universal - DUA)</h3>
-                    <p class="text-xs md:text-sm text-slate-600 mt-2">Fundamentan que las barreras no residen en el estudiante de secundaria, sino en un currículo inflexible. Proponen múltiples formas de representación, expresión e implicación.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-base font-bold text-indigo-700">Mel Ainscow (Reducción de Barreras)</h3>
-                    <p class="text-xs md:text-sm text-slate-600 mt-2">Su perspectiva enfatiza la necesidad constante de identificar y remover barreras de acceso y participación, transformando la escuela secundaria para acoger la diversidad.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-base font-bold text-indigo-700">Lev Vygotsky (Mediación y Andamiaje)</h3>
-                    <p class="text-xs md:text-sm text-slate-600 mt-2">Los sistemas aumentativos, pictogramas y apoyos digitales actúan como herramientas de mediación cultural que potencian el desarrollo cognitivo en adolescentes.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-                    <h3 class="text-base font-bold text-indigo-700">Sistemas de Comunicación (CAA)</h3>
-                    <p class="text-xs md:text-sm text-slate-600 mt-2">Validación técnica y pedagógica de soportes visuales y traductores instantáneos para garantizar puentes semánticos efectivos en el aula inclusiva.</p>
-                </div>
-            </div>
-        </section>
+</section>
 
-    </main>
+<section id="modulos" class="modulos">
 
-    <!-- Footer -->
-    <footer class="bg-white border-t mt-12 py-6 text-center text-xs text-slate-500">
-        Portal Educativo Inclusivo — 3.° Año de Secundaria &copy; 2026.
-    </footer>
+<div class="card">
+<h3>🔎 Módulo 1</h3>
+<h4>Detectives de Barreras</h4>
+<p>
+Identifica barreras visuales, auditivas,
+cognitivas y tecnológicas.
+</p>
+<a href="detectives.html">
+Ingresar
+</a>
+</div>
 
-    <!-- Lógica JavaScript Interactiva -->
-    <script>
-        function switchTab(tabId) {
-            ['inicio', 'actividades', 'picto', 'autores'].forEach(t => {
-                document.getElementById('tab-' + t).classList.add('hidden');
-                document.getElementById('btn-' + t).className = "px-3.5 py-2 rounded-lg text-xs font-semibold text-indigo-100 hover:bg-indigo-800 transition";
-            });
-            document.getElementById('tab-' + tabId).classList.remove('hidden');
-            document.getElementById('btn-' + tabId).className = "px-3.5 py-2 rounded-lg text-xs font-semibold bg-white text-indigo-900 shadow transition";
-        }
+<div class="card">
+<h3>✅ Módulo 2</h3>
+<h4>¿Es Accesible?</h4>
+<p>
+Evalúa recursos y determina si cumplen
+criterios de accesibilidad.
+</p>
+<a href="accesibilidad.html">
+Ingresar
+</a>
+</div>
 
-        function setGameMode(mode) {
-            if (mode === 'translator') {
-                document.getElementById('section-translator').classList.remove('hidden');
-                document.getElementById('section-mathgame').classList.add('hidden');
-                document.getElementById('mode-trans').className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow";
-                document.getElementById('mode-math').className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50";
-            } else {
-                document.getElementById('section-translator').classList.add('hidden');
-                document.getElementById('section-mathgame').classList.remove('hidden');
-                document.getElementById('mode-math').className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow";
-                document.getElementById('mode-trans').className = "px-3 py-1.5 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50";
-                generateMathProblem();
-            }
-        }
+<div class="card">
+<h3>🤖 Módulo 3</h3>
+<h4>Laboratorio IA</h4>
+<p>
+Aprende a utilizar IA para adaptar
+contenidos educativos.
+</p>
+<a href="laboratorioIA.html">
+Ingresar
+</a>
+</div>
 
-        const pictoDictionary = {
-            "manzana": { text: "Manzana", emoji: "🍎", bg: "bg-red-50 border-red-200 text-red-700" },
-            "bananas": { text: "Bananas", emoji: "🍌", bg: "bg-yellow-50 border-yellow-200 text-yellow-800" },
-            "banana": { text: "Banana", emoji: "🍌", bg: "bg-yellow-50 border-yellow-200 text-yellow-800" },
-            "feliz": { text: "Feliz", emoji: "😊", bg: "bg-emerald-50 border-emerald-200 text-emerald-700" },
-            "resolver": { text: "Resolver", emoji: "✏️", bg: "bg-indigo-50 border-indigo-200 text-indigo-700" },
-            "calcular": { text: "Calcular", emoji: "🔢", bg: "bg-blue-50 border-blue-200 text-blue-700" },
-            "ciencia": { text: "Ciencia", emoji: "🔬", bg: "bg-emerald-50 border-emerald-200 text-emerald-700" },
-            "funcion": { text: "Función", emoji: "📈", bg: "bg-purple-50 border-purple-200 text-purple-700" },
-            "agua": { text: "Agua", emoji: "💧", bg: "bg-cyan-50 border-cyan-200 text-cyan-700" },
-            "escuela": { text: "Escuela", emoji: "🏫", bg: "bg-amber-50 border-amber-200 text-amber-700" }
-        };
+<div class="card">
+<h3>📝 Módulo 4</h3>
+<h4>Adaptador Inclusivo</h4>
+<p>
+Transforma materiales complejos en
+contenidos accesibles.
+</p>
+<a href="adaptador.html">
+Ingresar
+</a>
+</div>
 
-        const touchItems = [
-            { word: "resolver", label: "Resolver", emoji: "✏️" },
-            { word: "calcular", label: "Calcular", emoji: "🔢" },
-            { word: "bananas", label: "Bananas", emoji: "🍌" },
-            { word: "manzana", label: "Manzana", emoji: "🍎" },
-            { word: "ciencia", label: "Ciencia", emoji: "🔬" },
-            { word: "funcion", label: "Función", emoji: "📈" }
-        ];
+<div class="card">
+<h3>🎮 Módulo 5</h3>
+<h4>Escape Room Inclusivo</h4>
+<p>
+Resuelve desafíos relacionados con
+accesibilidad e IA.
+</p>
+<a href="escape.html">
+Ingresar
+</a>
+</div>
 
-        let isCaps = false;
+<div class="card">
+<h3>💬 Módulo 6</h3>
+<h4>Debate con IA</h4>
+<p>
+Analiza críticamente el uso de la IA
+en la educación.
+</p>
+<a href="debate.html">
+Ingresar
+</a>
+</div>
 
-        function initTouchBoard() {
-            const board = document.getElementById('touchBoard');
-            board.innerHTML = touchItems.map(item => `
-                <button onclick="addPictoWord('${item.word}')" class="p-2.5 bg-white border border-slate-200 rounded-xl hover:bg-indigo-50 transition flex flex-col items-center gap-1 shadow-sm">
-                    <span class="text-2xl">${item.emoji}</span>
-                    <span class="text-xs font-semibold text-slate-700">${item.label}</span>
-                </button>
-            `).join('');
-        }
+<div class="card">
+<h3>🧠 Módulo 7</h3>
+<h4>Quiz Gamificado</h4>
+<p>
+Pon a prueba tus conocimientos.
+</p>
+<a href="quiz.html">
+Ingresar
+</a>
+</div>
 
-        function addPictoWord(word) {
-            const input = document.getElementById('phraseInput');
-            input.value += (input.value ? " " : "") + word;
-            translatePhrase();
-        }
+<div class="card">
+<h3>🏆 Módulo 8</h3>
+<h4>Proyecto Final</h4>
+<p>
+Diseña un recurso educativo accesible.
+</p>
+<a href="proyecto.html">
+Ingresar
+</a>
+</div>
 
-        function toggleCaps() {
-            isCaps = document.getElementById('capsToggle').checked;
-            translatePhrase();
-        }
+</section>
 
-        function translatePhrase() {
-            const text = document.getElementById('phraseInput').value.toLowerCase().trim();
-            const output = document.getElementById('pictoOutput');
-            if (!text) {
-                output.innerHTML = `<span class="text-slate-400 text-sm italic">Los pictogramas se visualizarán aquí al escribir o pulsar los elementos del tablero...</span>`;
-                return;
-            }
+<section class="quiz">
 
-            const words = text.split(/\s+/);
-            output.innerHTML = words.map(w => {
-                const item = pictoDictionary[w] || { text: w, emoji: "📝", bg: "bg-slate-100 border-slate-200 text-slate-700" };
-                let labelText = isCaps ? item.text.toUpperCase() : item.text;
-                return `
-                    <div class="flex flex-col items-center p-2.5 rounded-xl border ${item.bg} shadow-sm picto-card">
-                        <span class="text-3xl">${item.emoji}</span>
-                        <span class="text-xs font-bold mt-1">${labelText}</span>
-                    </div>
-                `;
-            }).join('');
-        }
+<h2>
+Prueba rápida
+</h2>
 
-        function speakPhrase() {
-            const text = document.getElementById('phraseInput').value;
-            if (!text) return;
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'es-ES';
-            utterance.rate = parseFloat(document.getElementById('voiceSpeed').value);
-            window.speechSynthesis.speak(utterance);
-        }
+<p>
+¿Qué barrera presenta un video sin subtítulos?
+</p>
 
-        function clearPhrase() {
-            document.getElementById('phraseInput').value = '';
-            translatePhrase();
-        }
+<button onclick="verificar('correcto')">
+Auditiva
+</button>
 
-        // Lógica del juego matemático visual adaptado
-        let currentCorrectAnswer = 0;
+<button onclick="verificar('incorrecto')">
+Visual
+</button>
 
-        function generateMathProblem() {
-            const num1 = Math.floor(Math.random() * 4) + 1;
-            const num2 = Math.floor(Math.random() * 4) + 1;
-            currentCorrectAnswer = num1 + num2;
-            const fruitEmoji = Math.random() > 0.5 ? "🍎" : "🍌";
-            const fruitName = fruitEmoji === "🍎" ? "manzanas" : "bananas";
+<button onclick="verificar('incorrecto')">
+Tecnológica
+</button>
 
-            document.getElementById('mathQuestion').innerText = `¿Cuánto es ${num1} ${fruitName} + ${num2} ${fruitName}?`;
+<div id="resultado" class="resultado"></div>
 
-            let visualHTML = `
-                <div class="flex items-center gap-1 bg-slate-50 px-3 py-2 rounded-xl border">${fruitEmoji.repeat(num1)} <span class="text-xs font-bold text-slate-500">(${num1})</span></div>
-                <span class="text-indigo-600 font-extrabold">+</span>
-                <div class="flex items-center gap-1 bg-slate-50 px-3 py-2 rounded-xl border">${fruitEmoji.repeat(num2)} <span class="text-xs font-bold text-slate-500">(${num2})</span></div>
-                <span class="text-indigo-600 font-extrabold">=</span>
-                <span class="text-slate-400">❓</span>
-            `;
-            document.getElementById('mathVisualContainer').innerHTML = visualHTML;
-            document.getElementById('mathFeedback').innerText = '';
+</section>
 
-            let options = [currentCorrectAnswer];
-            while(options.length < 4) {
-                let wrong = Math.floor(Math.random() * 8) + 1;
-                if(!options.includes(wrong)) options.push(wrong);
-            }
-            options.sort(() => Math.random() - 0.5);
+<section class="info">
 
-            const optionsContainer = document.getElementById('mathOptions');
-            optionsContainer.innerHTML = options.map(opt => `
-                <button onclick="checkMathAnswer(${opt})" class="p-3 bg-white border-2 border-slate-200 hover:border-indigo-500 rounded-xl font-bold text-lg text-slate-700 shadow-sm transition flex flex-col items-center justify-center gap-1">
-                    <span>${opt}</span>
-                    <span class="text-xs opacity-80">${fruitEmoji.repeat(opt <= 5 ? opt : 1)}</span>
-                </button>
-            `).join('');
-        }
+<h2>
+📚 Acerca del Proyecto
+</h2>
 
-        function checkMathAnswer(selected) {
-            const feedback = document.getElementById('mathFeedback');
-            if(selected === currentCorrectAnswer) {
-                feedback.innerHTML = `<span class="text-emerald-700 bg-emerald-50 px-4 py-2 rounded-xl border border-emerald-200 block shadow-sm">🎉 ¡Excelente razonamiento! Resultado correcto.</span>`;
-            } else {
-                feedback.innerHTML = `<span class="text-rose-700 bg-rose-50 px-4 py-2 rounded-xl border border-rose-200 block shadow-sm">❌ Intenta nuevamente contando las unidades gráficas.</span>`;
-            }
-        }
+<p>
 
-        initTouchBoard();
-    </script>
+Este entorno se fundamenta en el Diseño Universal para el Aprendizaje (DUA),
+los principios multimedia de Richard Mayer y el modelo TPACK.
+
+Su objetivo es eliminar barreras de aprendizaje mediante la creación
+de materiales accesibles, promoviendo la ciudadanía digital,
+la inclusión educativa y el uso crítico de herramientas de Inteligencia Artificial.
+
+Los estudiantes trabajarán colaborativamente utilizando Google Classroom,
+Google Drive, WhatsApp, netbooks escolares y asistentes de IA como
+ChatGPT y Gemini.
+
+</p>
+
+</section>
+
+<footer class="footer">
+
+<h3>
+Tecnología para Incluir
+</h3>
+
+<p>
+Informática Educativa · Educación Secundaria · 3º Año
+</p>
+
+<p>
+Aprender para incluir. Incluir para transformar.
+</p>
+
+</footer>
+
+<script>
+
+let progreso = localStorage.getItem("progreso") || 15;
+
+document.getElementById("avance").style.width =
+progreso + "%";
+
+document.getElementById("porcentaje").innerHTML =
+progreso + "% completado";
+
+function verificar(respuesta){
+
+const resultado =
+document.getElementById("resultado");
+
+if(respuesta==="correcto"){
+
+resultado.innerHTML=
+"✅ Correcto. Un video sin subtítulos genera una barrera auditiva.";
+
+}
+else{
+
+resultado.innerHTML=
+"❌ Revisa nuevamente la situación.";
+
+}
+
+}
+
+</script>
+
 </body>
 </html>
