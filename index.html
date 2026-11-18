@@ -319,7 +319,7 @@
             </article>
         </section>
 
-        <!-- PESTAÑA 4: APLICACIÓN INTERACTIVA PICTOAPRENDE (SUBIDA LOCAL DE IMÁGENES + VOZ REPARADA) -->
+        <!-- PESTAÑA 4: APLICACIÓN INTERACTIVA PICTOAPRENDE -->
         <section id="tab-picto" class="hidden space-y-6">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b pb-4">
@@ -492,7 +492,7 @@
         Proyecto Integrador «Tecnología para Incluir» · 3.° Año Educación Secundaria · Diseño Accesible y Bajo Consumo de Datos.
     </footer>
 
-    <!-- Lógica JavaScript (Subida de Imagen Local + Síntesis de Voz Restaurada) -->
+    <!-- Lógica JavaScript Operativa -->
     <script>
         function switchTab(tabId) {
             ['proyecto', 'classroom', 'materias', 'picto', 'marco'].forEach(t => {
@@ -565,7 +565,7 @@
             "tranquilo": { text: "Tranquilo", type: "emoji", content: "😌", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" }
         };
 
-        // Cargar diccionario personalizado guardado en localStorage
+        // Cargar diccionario personalizado
         let customDict = JSON.parse(localStorage.getItem('userPictoDict') || '{}');
         let pictoDictionary = { ...basePictoDictionary, ...customDict };
 
@@ -577,14 +577,14 @@
             modal.classList.toggle('hidden');
         }
 
-        // Función para procesar y guardar la imagen local subida desde la netbook o celular
+        // Subida de imagen local corregida y optimizada
         function addNewPictoWithImage() {
             const wordInput = document.getElementById('newWord').value.toLowerCase().trim();
             const fileInput = document.getElementById('imageFile');
             const feedback = document.getElementById('modalFeedback');
 
             if (!wordInput || fileInput.files.length === 0) {
-                feedback.innerHTML = `<span class="text-rose-700">⚠️ Por favor escribe la palabra y selecciona una imagen guardada en tu dispositivo.</span>`;
+                feedback.innerHTML = `<span class="text-rose-700">⚠️ Ingresa una palabra y selecciona una imagen de tu dispositivo.</span>`;
                 return;
             }
 
@@ -605,15 +605,20 @@
                 localStorage.setItem('userPictoDict', JSON.stringify(customDict));
                 pictoDictionary = { ...basePictoDictionary, ...customDict };
 
-                feedback.innerHTML = `<span class="text-emerald-700">🎉 ¡Imagen y palabra "${wordInput}" guardadas correctamente!</span>`;
+                feedback.innerHTML = `<span class="text-emerald-700">🎉 ¡Guardado con éxito! "${wordInput}" ya está disponible.</span>`;
                 document.getElementById('newWord').value = '';
                 fileInput.value = '';
                 renderTouchBoard();
+                translatePhrase();
 
                 setTimeout(() => {
                     document.getElementById('addModal').classList.add('hidden');
                     feedback.innerHTML = '';
                 }, 2000);
+            };
+
+            reader.onerror = function() {
+                feedback.innerHTML = `<span class="text-rose-700">❌ Error al leer la imagen. Intenta con otro archivo JPG o PNG.</span>`;
             };
 
             reader.readAsDataURL(file);
@@ -627,7 +632,7 @@
             board.innerHTML = filtered.map(key => {
                 const item = pictoDictionary[key];
                 let visualEl = item.type === 'image' 
-                    ? `<img src="${item.content}" class="w-8 h-8 object-contain rounded">` 
+                    ? `<div class="w-10 h-10 flex items-center justify-center bg-white rounded p-0.5 border"><img src="${item.content}" class="w-full h-full object-contain"></div>` 
                     : `<span class="text-2xl">${item.content}</span>`;
 
                 return `
@@ -711,16 +716,25 @@
             }).join('');
         }
 
-        // Sistema de Voz Reparado y Robusto
+        // Síntesis de voz totalmente restaurada y optimizada para navegadores
         function speakSingle(text) {
             if (!('speechSynthesis' in window)) {
-                alert("Tu navegador no soporta síntesis de voz.");
+                alert("La síntesis de voz no está soportada en este navegador.");
                 return;
             }
             window.speechSynthesis.cancel();
+            
             const utterance = new SpeechSynthesisUtterance(text);
             utterance.lang = 'es-ES';
             utterance.rate = parseFloat(document.getElementById('voiceSpeed').value);
+            
+            // Forzar selección de voz en español si está disponible
+            const voices = window.speechSynthesis.getVoices();
+            const spanishVoice = voices.find(v => v.lang.startsWith('es'));
+            if (spanishVoice) {
+                utterance.voice = spanishVoice;
+            }
+
             window.speechSynthesis.speak(utterance);
         }
 
@@ -786,6 +800,13 @@
                 feedback.innerHTML = `<span class="text-rose-800 bg-rose-100 px-4 py-2 rounded-xl border border-rose-300 inline-block">❌ Incorrecto. Reemplaza x por el número y verifica la igualdad.</span>`;
                 speakSingle("Intenta nuevamente despejando la ecuación");
             }
+        }
+
+        // Precargar voces del sistema
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
         }
 
         renderTouchBoard();
