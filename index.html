@@ -11,6 +11,11 @@
         .tab-btn-active { background-color: #ffffff; color: #1e1b4b; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
         .tab-btn-inactive { color: #e0e7ff; }
         .tab-btn-inactive:hover { background-color: rgba(255,255,255,0.12); }
+        @keyframes pulse-border {
+            0%, 100% { border-color: #818cf8; }
+            50% { border-color: #c7d2fe; }
+        }
+        .ai-loading { animation: pulse-border 1.5s infinite; }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-800 font-sans min-h-full flex flex-col">
@@ -45,11 +50,8 @@
     <!-- Contenedor Principal -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 py-8">
 
-        <!-- ===================================================================== -->
-        <!-- PESTAÑA 1: PRESENTACIÓN, CONTEXTO, ECOSISTEMA DIGITAL Y ÉTICA IA       -->
-        <!-- ===================================================================== -->
+        <!-- PESTAÑA 1: PRESENTACIÓN, CONTEXTO, ECOSISTEMA DIGITAL Y ÉTICA IA -->
         <section id="tab-proyecto" class="space-y-8">
-            <!-- Banner Principal -->
             <div class="bg-gradient-to-br from-indigo-700 to-blue-800 text-white rounded-3xl p-6 md:p-10 shadow-xl">
                 <span class="bg-white/20 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">Área: Informática Educativa & Articulación Curricular</span>
                 <h2 class="text-2xl md:text-3xl font-extrabold mt-3">Diseño de un entorno digital accesible y de bajo consumo de datos</h2>
@@ -64,12 +66,11 @@
                 </div>
             </div>
 
-            <!-- Problemática y Objetivos -->
             <div class="grid lg:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
                     <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2"><span>📡</span> Contexto Educativo y Problemática Real</h3>
                     <p class="text-sm text-slate-600 leading-relaxed">
-                        En muchas escuelas secundarias públicas, la conectividad no es estable y gran parte de los estudiantes no cuenta con Wi-Fi ni datos móviles suficientes. Aunque dispongan de teléfonos celulares, enfrentar textos extensos, imágenes borrosas o videos sin subtítulos genera exclusión.
+                        En muchas escuelas secundarias públicas, la conectividad no es estable y una parte de los estudiantes no cuenta con Wi-Fi ni datos móviles suficientes. Aunque dispongan de teléfonos celulares, enfrentar textos extensos, imágenes borrosas o videos sin subtítulos genera exclusión.
                     </p>
                     <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl text-xs text-amber-900">
                         <strong>El desafío pedagógico:</strong> Dejar de usar la tecnología solo para transmitir archivos pesados y emplearla para <em>eliminar barreras</em> sin depender de conexión permanente.
@@ -92,7 +93,6 @@
                 </div>
             </div>
 
-            <!-- Ecosistema Digital (4 Herramientas) -->
             <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
                 <h3 class="text-xl font-bold text-slate-800 mb-1">🌐 Diseño del Ecosistema Digital Híbrido</h3>
                 <p class="text-sm text-slate-500 mb-6">Cada herramienta cumple una función pedagógica específica adaptada a la realidad de conectividad de los estudiantes:</p>
@@ -121,7 +121,6 @@
                 </div>
             </div>
 
-            <!-- Uso Crítico y Ético de IA -->
             <div class="bg-slate-800 text-white p-6 md:p-8 rounded-2xl shadow-md">
                 <div class="flex flex-col md:flex-row justify-between gap-6">
                     <div class="md:w-1/2 space-y-3">
@@ -143,9 +142,7 @@
             </div>
         </section>
 
-        <!-- ===================================================================== -->
-        <!-- PESTAÑA 2: SECUENCIA EN GOOGLE CLASSROOM (PUBLICACIONES 00 A 06)      -->
-        <!-- ===================================================================== -->
+        <!-- PESTAÑA 2: SECUENCIA EN GOOGLE CLASSROOM -->
         <section id="tab-classroom" class="hidden space-y-6">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
@@ -156,7 +153,6 @@
             </div>
 
             <div class="space-y-4">
-                <!-- Pub 00 -->
                 <div class="bg-white p-5 rounded-2xl border-l-4 border-slate-400 shadow-sm">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-extrabold text-slate-500 uppercase">Publicación 00 · Clase 1</span>
@@ -166,7 +162,6 @@
                     <p class="text-xs md:text-sm text-slate-600 mt-1">Presentación de objetivos y organización del aula. Tutorial práctico en las netbooks del ADM y celulares para activar el acceso sin conexión en Google Drive y descargar el paquete inicial de materiales.</p>
                 </div>
 
-                <!-- Pub 01 -->
                 <div class="bg-white p-5 rounded-2xl border-l-4 border-amber-500 shadow-sm">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-extrabold text-amber-700 uppercase">Publicación 01 · Clase 2 (Diagnóstica)</span>
@@ -176,7 +171,6 @@
                     <p class="text-xs md:text-sm text-slate-600 mt-1"><strong>Situación disparadora:</strong> Un grupo de 3.° año recibe por WhatsApp una foto borrosa de un pizarrón, un video explicativo sin subtítulos y un PDF de 12 páginas de texto corrido para hacer un TP. Los estudiantes debaten en el foro qué barreras impiden resolver la tarea y proponen soluciones concretas.</p>
                 </div>
 
-                <!-- Pub 02 -->
                 <div class="bg-white p-5 rounded-2xl border-l-4 border-blue-500 shadow-sm">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-extrabold text-blue-700 uppercase">Publicación 02 · Clase 3</span>
@@ -186,7 +180,6 @@
                     <p class="text-xs md:text-sm text-slate-600 mt-1">Análisis guiado sobre barreras visuales, auditivas, cognitivas y tecnológicas. Introducción a los principios multimedia de Mayer (segmentación, señalización y contigüidad) y cómo estructurar prompts efectivos y éticos en IA.</p>
                 </div>
 
-                <!-- Pub 03 -->
                 <div class="bg-white p-5 rounded-2xl border-l-4 border-indigo-600 shadow-sm">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-extrabold text-indigo-700 uppercase">Publicación 03 · Clases 4 y 5 (Práctica ADM)</span>
@@ -196,7 +189,6 @@
                     <p class="text-xs md:text-sm text-slate-600 mt-1">En equipos con las netbooks del ADM, reciben un texto disciplinar complejo (de Ciencias, Matemática o Lengua). Utilizan ChatGPT o Gemini para transformarlo en lectura fácil (oraciones breves, glosario y pictogramas). Luego realizan una <strong>auditoría crítica</strong> comparando el original con la salida de la IA para corregir errores.</p>
                 </div>
 
-                <!-- Pub 04 -->
                 <div class="bg-white p-5 rounded-2xl border-l-4 border-purple-600 shadow-sm">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-extrabold text-purple-700 uppercase">Publicación 04 · Clases 6 y 7</span>
@@ -206,7 +198,6 @@
                     <p class="text-xs md:text-sm text-slate-600 mt-1">Cada grupo diseña un recurso final ligero (infografía accesible, guía con códigos QR de audio o secuencia pictográfica). Se publica en el muro de Classroom para recibir sugerencias constructivas de otros grupos y aplicar mejoras.</p>
                 </div>
 
-                <!-- Pub 05 y 06 -->
                 <div class="bg-white p-5 rounded-2xl border-l-4 border-emerald-600 shadow-sm">
                     <div class="flex justify-between items-center">
                         <span class="text-xs font-extrabold text-emerald-700 uppercase">Publicaciones 05 y 06 · Clase 8</span>
@@ -218,16 +209,14 @@
             </div>
         </section>
 
-        <!-- ===================================================================== -->
-        <!-- PESTAÑA 3: ACTIVIDADES PRÁCTICAS EJECUTABLES POR MATERIA (3° AÑO)     -->
-        <!-- ===================================================================== -->
+        <!-- PESTAÑA 3: ACTIVIDADES PRÁCTICAS EJECUTABLES POR MATERIA -->
         <section id="tab-materias" class="hidden space-y-8">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                 <h2 class="text-2xl font-bold text-slate-800">Actividades Prácticas Ejecutables por Asignatura (3.° Año)</h2>
                 <p class="text-sm text-slate-500 mt-1">Ejemplos listos para llevar al aula articulando Informática Educativa con Ciencias Naturales, Matemática y Lengua.</p>
             </div>
 
-            <!-- MATERIA 1: CIENCIAS NATURALES -->
+            <!-- CIENCIAS NATURALES -->
             <article class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
                 <div class="bg-emerald-700 text-white px-6 py-4 flex flex-wrap justify-between items-center gap-2">
                     <div>
@@ -265,7 +254,7 @@
                 </div>
             </article>
 
-            <!-- MATERIA 2: MATEMÁTICA -->
+            <!-- MATEMÁTICA -->
             <article class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
                 <div class="bg-blue-700 text-white px-6 py-4 flex flex-wrap justify-between items-center gap-2">
                     <div>
@@ -297,7 +286,7 @@
                 </div>
             </article>
 
-            <!-- MATERIA 3: LENGUA / PRÁCTICAS DEL LENGUAJE -->
+            <!-- LENGUA -->
             <article class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
                 <div class="bg-amber-600 text-white px-6 py-4 flex flex-wrap justify-between items-center gap-2">
                     <div>
@@ -336,17 +325,20 @@
         </section>
 
         <!-- ===================================================================== -->
-        <!-- PESTAÑA 4: APLICACIÓN INTERACTIVA PICTOAPRENDE (TRADUCTOR + JUEGO)    -->
+        <!-- PESTAÑA 4: APLICACIÓN INTERACTIVA PICTOAPRENDE (OPCIÓN 1: IA ACTIVA)  -->
         <!-- ===================================================================== -->
         <section id="tab-picto" class="hidden space-y-6">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b pb-4">
                     <div>
-                        <h2 class="text-2xl font-bold text-slate-800 flex items-center gap-2"><span>🧩</span> PictoAprende · Herramienta Interactiva de Aula</h2>
-                        <p class="text-slate-500 text-sm">Funciona 100% en el navegador sin consumir datos adicionales. Ideal para netbooks del ADM y celulares.</p>
+                        <div class="flex items-center gap-2">
+                            <h2 class="text-2xl font-bold text-slate-800">🧩 PictoAprende · Generador Visual con IA</h2>
+                            <span class="bg-indigo-100 text-indigo-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Paso 1: IA Automática Activa</span>
+                        </div>
+                        <p class="text-slate-500 text-sm mt-1">Escribe cualquier palabra nueva (ej: <em>volcán, célula, guitarra, átomo</em>) y presiona <strong>«✨ Traducir con IA»</strong> para generar su pictograma automáticamente.</p>
                     </div>
                     <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl">
-                        <button onclick="setGameMode('translator')" id="mode-trans" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow">1. Pictotraductor & Voz</button>
+                        <button onclick="setGameMode('translator')" id="mode-trans" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow">1. Pictotraductor IA & Voz</button>
                         <button onclick="setGameMode('mathgame')" id="mode-math" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50">2. Juego Matemático Visual</button>
                     </div>
                 </div>
@@ -372,23 +364,30 @@
                     </div>
                 </div>
 
-                <!-- MODO 1: PICTOTRADUCTOR Y TABLERO CAA -->
+                <!-- MODO 1: PICTOTRADUCTOR CON IA GENERATIVA -->
                 <div id="section-translator" class="mt-6 space-y-5">
                     <div class="flex flex-col sm:flex-row gap-2">
-                        <input type="text" id="phraseInput" onkeyup="translatePhrase()" placeholder="Escribe o toca pictogramas (ej: yo quiero estudiar ciencias y agua)..." class="flex-grow border-2 border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500">
-                        <button onclick="speakPhrase()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-xl font-bold text-sm shadow flex items-center justify-center gap-2 transition">🔊 Escuchar Frase</button>
+                        <input type="text" id="phraseInput" onkeydown="if(event.key==='Enter') translateWithAI()" placeholder="Escribe una frase o palabra nueva (ej: yo quiero estudiar volcán y célula)..." class="flex-grow border-2 border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500">
+                        <button onclick="translateWithAI()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-xl font-bold text-sm shadow flex items-center justify-center gap-1.5 transition">✨ Traducir con IA</button>
+                        <button onclick="speakPhrase()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-xl font-bold text-sm shadow flex items-center justify-center gap-1.5 transition">🔊 Escuchar</button>
                         <button onclick="clearPhrase()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-3 rounded-xl text-sm font-semibold transition">Limpiar</button>
                     </div>
 
                     <!-- Lienzo de Pictogramas -->
-                    <div id="pictoOutput" class="min-h-[150px] bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-5 flex flex-wrap gap-3 items-center justify-center transition-colors">
-                        <span class="text-slate-400 text-sm italic">Escribe palabras arriba o selecciona tarjetas del tablero inferior...</span>
+                    <div id="pictoOutput" class="min-h-[170px] bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-5 flex flex-wrap gap-3 items-center justify-center transition-colors">
+                        <span class="text-slate-400 text-sm italic">Escribe palabras arriba y presiona «✨ Traducir con IA», o toca tarjetas del tablero inferior...</span>
+                    </div>
+
+                    <!-- Leyenda de origen visual -->
+                    <div class="flex flex-wrap items-center justify-between text-[11px] text-slate-500 px-1">
+                        <span>💡 <strong>Cómo funciona:</strong> Las palabras escolares conocidas cargan al instante (sin gastar datos). Las palabras nuevas se generan automáticamente con IA visual.</span>
+                        <span class="text-indigo-600 font-semibold">Haz clic sobre cualquier tarjeta para escucharla</span>
                     </div>
 
                     <!-- Tablero Táctil por Categorías -->
                     <div class="pt-3 border-t space-y-3">
                         <div class="flex flex-wrap items-center justify-between gap-2">
-                            <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Tablero Táctil de Comunicación (Clic para agregar y escuchar):</h3>
+                            <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Tablero Táctil Rápido (Sin consumo de datos):</h3>
                             <div class="flex gap-1 text-xs">
                                 <button onclick="filterBoard('all')" class="px-2.5 py-1 rounded-lg bg-indigo-100 text-indigo-800 font-bold">Todos</button>
                                 <button onclick="filterBoard('acciones')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium">Acciones</button>
@@ -410,11 +409,9 @@
                         </div>
                         <h3 id="mathQuestion" class="text-lg md:text-2xl font-extrabold text-slate-800">Calcula el resultado observando las cantidades:</h3>
                         
-                        <!-- Representación Gráfica Exacta -->
                         <div id="mathVisualContainer" class="flex flex-wrap justify-center items-center gap-4 my-6 text-3xl md:text-4xl min-h-[100px] bg-white p-5 rounded-2xl shadow-sm border border-indigo-100">
                         </div>
 
-                        <!-- Opciones con Representación Visual -->
                         <div id="mathOptions" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
                         </div>
                         
@@ -429,16 +426,13 @@
             </div>
         </section>
 
-        <!-- ===================================================================== -->
-        <!-- PESTAÑA 5: MARCO TEÓRICO (DUA, MAYER, TPACK Y EVALUACIÓN)             -->
-        <!-- ===================================================================== -->
+        <!-- PESTAÑA 5: MARCO TEÓRICO -->
         <section id="tab-marco" class="hidden space-y-8">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                 <h2 class="text-2xl font-bold text-slate-800">Fundamentación Pedagógica, Modelo TPACK y Evaluación</h2>
                 <p class="text-sm text-slate-500 mt-1">Sustento teórico que guía cada decisión tecnológica y didáctica del proyecto.</p>
             </div>
 
-            <!-- DUA + 5 Principios de Mayer -->
             <div class="grid lg:grid-cols-2 gap-6">
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
                     <h3 class="text-lg font-bold text-indigo-800">1. Diseño Universal para el Aprendizaje (DUA - Meyer, Rose y Gordon)</h3>
@@ -469,7 +463,6 @@
                 </div>
             </div>
 
-            <!-- TPACK + Autores Complementarios -->
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 space-y-4">
                 <h3 class="text-lg font-bold text-slate-800">3. Integración del Modelo TPACK y Referentes de Inclusión</h3>
                 <div class="grid md:grid-cols-3 gap-4 text-xs">
@@ -488,7 +481,6 @@
                 </div>
             </div>
 
-            <!-- Evaluación en 4 Instancias -->
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                 <h3 class="text-lg font-bold text-slate-800 mb-3">4. Evaluación Continua y Criterios</h3>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs mb-4">
@@ -538,7 +530,7 @@
             }
         }
 
-        // Diccionario ampliado para 3° Año (Ciencias, Matemática, Lengua, Acciones y Emociones)
+        // Diccionario base rápido (funciona 100% offline)
         const pictoDictionary = {
             "yo": { text: "Yo", emoji: "🧑", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
             "quiero": { text: "Quiero", emoji: "🙋", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
@@ -562,6 +554,9 @@
             "manzanas": { text: "Manzanas", emoji: "🍎", bg: "bg-red-50 border-red-300 text-red-900", cat: "frutas" },
             "naranja": { text: "Naranja", emoji: "🍊", bg: "bg-orange-50 border-orange-300 text-orange-900", cat: "frutas" }
         };
+
+        // Conectores gramaticales cortos para no gastar IA en artículos/preposiciones
+        const stopWords = new Set(["el", "la", "los", "las", "un", "una", "y", "o", "de", "del", "en", "a", "con", "por", "para", "es", "son", "que"]);
 
         let isCaps = false;
         let currentFilter = 'all';
@@ -590,13 +585,13 @@
         function addPictoWord(word) {
             const input = document.getElementById('phraseInput');
             input.value += (input.value ? " " : "") + word;
-            translatePhrase();
+            translateWithAI();
             speakSingle(word);
         }
 
         function toggleCaps() {
             isCaps = document.getElementById('capsToggle').checked;
-            translatePhrase();
+            translateWithAI();
             renderTouchBoard();
         }
 
@@ -616,45 +611,59 @@
             return w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,!?¿¡]/g, "");
         }
 
-       function translatePhrase() {
-    const rawText = document.getElementById('phraseInput').value.trim();
-    const output = document.getElementById('pictoOutput');
-    if (!rawText) {
-        output.innerHTML = `<span class="text-slate-400 text-sm italic">Escribe palabras arriba o selecciona tarjetas del tablero inferior...</span>`;
-        return;
-    }
+        // OPCIÓN 1: Traducción con Diccionario Local + Generación Automática por IA
+        function translateWithAI() {
+            const rawText = document.getElementById('phraseInput').value.trim();
+            const output = document.getElementById('pictoOutput');
+            if (!rawText) {
+                output.innerHTML = `<span class="text-slate-400 text-sm italic">Escribe palabras arriba y presiona «✨ Traducir con IA», o toca tarjetas del tablero inferior...</span>`;
+                return;
+            }
 
-    const words = rawText.split(/\s+/);
-    output.innerHTML = words.map(w => {
-        const clean = normalizeWord(w);
-        
-        // 1. Si la palabra está en nuestro diccionario predeterminado de 3° año:
-        if (pictoDictionary[clean]) {
-            const item = pictoDictionary[clean];
-            let labelText = isCaps ? item.text.toUpperCase() : item.text;
-            return `
-                <div onclick="speakSingle('${item.text}')" class="cursor-pointer flex flex-col items-center p-3 rounded-2xl border-2 ${item.bg} shadow-sm picto-card min-w-[82px]">
-                    <span class="text-4xl">${item.emoji}</span>
-                    <span class="text-xs font-extrabold mt-1.5">${labelText}</span>
-                </div>
-            `;
-        } 
-        
-        // 2. Si es una palabra NUEVA no registrada, la IA o el sistema genera un pictograma automático:
-        else {
-            let labelText = isCaps ? w.toUpperCase() : w;
-            // Generación automática mediante IA visual ligera (Pollinations o servicio público)
-            let autoImageUrl = `https://image.pollinations.ai/prompt/simple%20pictogram%20icon%20flat%20vector%20of%20${encodeURIComponent(w)}?nologo=true`;
-            
-            return `
-                <div onclick="speakSingle('${w}')" class="cursor-pointer flex flex-col items-center p-3 rounded-2xl border-2 bg-indigo-50 border-indigo-200 text-indigo-900 shadow-sm picto-card min-w-[82px]">
-                    <img src="${autoImageUrl}" alt="${w}" class="w-12 h-12 object-contain rounded-lg bg-white p-1" onerror="this.onerror=null; this.src='https://api.iconify.design/fluent-emoji-flat:bulb.svg';">
-                    <span class="text-xs font-extrabold mt-1.5">${labelText}</span>
-                </div>
-            `;
+            const words = rawText.split(/\s+/);
+            output.innerHTML = words.map((w, idx) => {
+                const clean = normalizeWord(w);
+                if (!clean) return '';
+
+                // 1. Palabra en diccionario escolar local (instantáneo y offline)
+                if (pictoDictionary[clean]) {
+                    const item = pictoDictionary[clean];
+                    let labelText = isCaps ? item.text.toUpperCase() : item.text;
+                    return `
+                        <div onclick="speakSingle('${item.text}')" class="cursor-pointer flex flex-col items-center p-3 rounded-2xl border-2 ${item.bg} shadow-sm picto-card min-w-[92px]">
+                            <span class="text-4xl my-1">${item.emoji}</span>
+                            <span class="text-xs font-extrabold mt-1">${labelText}</span>
+                        </div>
+                    `;
+                }
+
+                // 2. Conectores gramaticales (sin imagen para mantener claridad Mayer)
+                if (stopWords.has(clean)) {
+                    let labelText = isCaps ? w.toUpperCase() : w.toLowerCase();
+                    return `
+                        <div onclick="speakSingle('${w}')" class="cursor-pointer flex flex-col items-center justify-center px-3 py-2 rounded-xl border border-slate-200 bg-white text-slate-500 shadow-sm min-w-[48px] h-[88px]">
+                            <span class="text-xs font-bold">${labelText}</span>
+                        </div>
+                    `;
+                }
+
+                // 3. Palabra NUEVA -> Generación automática mediante IA visual (Pollinations) con respaldo de ícono
+                let labelText = isCaps ? w.toUpperCase() : w;
+                const prompt = encodeURIComponent(`simple educational pictogram icon flat vector illustration of ${clean} isolated on pure white background, minimal, clear`);
+                const aiUrl = `https://image.pollinations.ai/prompt/${prompt}?width=160&height=160&nologo=true&seed=${clean.length * 17}`;
+                const fallbackIcon = `https://api.iconify.design/fluent-emoji-flat:sparkles.svg`;
+
+                return `
+                    <div onclick="speakSingle('${w}')" class="cursor-pointer flex flex-col items-center p-2.5 rounded-2xl border-2 bg-indigo-50/90 border-indigo-300 text-indigo-950 shadow-sm picto-card min-w-[96px] relative">
+                        <span class="absolute -top-2 -right-2 bg-indigo-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow">IA</span>
+                        <div class="w-14 h-14 rounded-xl bg-white border border-indigo-100 flex items-center justify-center overflow-hidden p-1">
+                            <img src="${aiUrl}" alt="${w}" loading="lazy" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='${fallbackIcon}';">
+                        </div>
+                        <span class="text-xs font-extrabold mt-1.5">${labelText}</span>
+                    </div>
+                `;
+            }).join('');
         }
-    }).join('');
-}
 
         function speakSingle(text) {
             window.speechSynthesis.cancel();
@@ -672,10 +681,10 @@
 
         function clearPhrase() {
             document.getElementById('phraseInput').value = '';
-            translatePhrase();
+            translateWithAI();
         }
 
-        // Juego Matemático Visual (Sumas y Restas con Frutas Exactas)
+        // Juego Matemático Visual
         let currentCorrectAnswer = 0;
         let currentMathOp = 'sum';
         let currentQuestionSpeech = '';
@@ -697,15 +706,15 @@
             let num1, num2, symbol;
 
             if (currentMathOp === 'sum') {
-                num1 = Math.floor(Math.random() * 4) + 1; // 1..4
-                num2 = Math.floor(Math.random() * 4) + 1; // 1..4
+                num1 = Math.floor(Math.random() * 4) + 1;
+                num2 = Math.floor(Math.random() * 4) + 1;
                 currentCorrectAnswer = num1 + num2;
                 symbol = "+";
                 currentQuestionSpeech = `Si tenemos ${num1} ${selectedFruit.name} y sumamos ${num2} ${selectedFruit.name}, ¿cuántas ${selectedFruit.name} hay en total?`;
                 document.getElementById('mathQuestion').innerText = `${num1} ${selectedFruit.name} + ${num2} ${selectedFruit.name} = ¿?`;
             } else {
-                num1 = Math.floor(Math.random() * 4) + 4; // 4..7
-                num2 = Math.floor(Math.random() * 3) + 1; // 1..3
+                num1 = Math.floor(Math.random() * 4) + 4;
+                num2 = Math.floor(Math.random() * 3) + 1;
                 currentCorrectAnswer = num1 - num2;
                 symbol = "-";
                 currentQuestionSpeech = `Si tenemos ${num1} ${selectedFruit.name} y quitamos ${num2} ${selectedFruit.name}, ¿cuántas quedan?`;
@@ -758,7 +767,6 @@
             }
         }
 
-        // Inicializar al cargar
         renderTouchBoard();
     </script>
 </body>
