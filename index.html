@@ -11,11 +11,6 @@
         .tab-btn-active { background-color: #ffffff; color: #1e1b4b; box-shadow: 0 2px 6px rgba(0,0,0,0.12); }
         .tab-btn-inactive { color: #e0e7ff; }
         .tab-btn-inactive:hover { background-color: rgba(255,255,255,0.12); }
-        @keyframes pulse-border {
-            0%, 100% { border-color: #818cf8; }
-            50% { border-color: #c7d2fe; }
-        }
-        .ai-loading { animation: pulse-border 1.5s infinite; }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-800 font-sans min-h-full flex flex-col">
@@ -258,8 +253,8 @@
             <article class="bg-white rounded-3xl shadow-sm border border-slate-200 overflow-hidden">
                 <div class="bg-blue-700 text-white px-6 py-4 flex flex-wrap justify-between items-center gap-2">
                     <div>
-                        <span class="text-xs font-bold uppercase tracking-wider text-blue-200">Matemática · 3.° Año (Adecuación Curricular)</span>
-                        <h3 class="text-xl font-bold">Actividad: «Resolución de Problemas y Proporcionalidad con Soporte Gráfico»</h3>
+                        <span class="text-xs font-bold uppercase tracking-wider text-blue-200">Matemática · 3.° Año (Secundaria)</span>
+                        <h3 class="text-xl font-bold">Actividad: «Ecuaciones y Resolución de Problemas con Apoyo Visual»</h3>
                     </div>
                     <span class="bg-white/20 text-xs font-semibold px-3 py-1 rounded-full">DUA: Múltiples formas de acción y expresión</span>
                 </div>
@@ -267,20 +262,20 @@
                     <div class="grid md:grid-cols-2 gap-4 text-sm">
                         <div class="bg-rose-50 p-4 rounded-xl border border-rose-100">
                             <p class="font-bold text-rose-800 text-xs uppercase">❌ Barrera detectada:</p>
-                            <p class="text-slate-700 mt-1 text-xs">Enunciados largos con distractores lingüísticos que bloquean la comprensión antes de poder iniciar el cálculo matemático.</p>
+                            <p class="text-slate-700 mt-1 text-xs">Enunciados largos con distractores lingüísticos que bloquean la comprensión antes de poder iniciar el planteo algebraico.</p>
                         </div>
                         <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
                             <p class="font-bold text-blue-800 text-xs uppercase">✅ Solución accesible e inclusiva:</p>
-                            <p class="text-slate-700 mt-1 text-xs">Enunciados estructurados en pasos cortos, lectura en voz alta automática y apoyo visual mediante agrupación de elementos concretos.</p>
+                            <p class="text-slate-700 mt-1 text-xs">Estructuración del problema en pasos lógicos, lectura en voz alta automática y modelización mediante el laboratorio matemático algebraico.</p>
                         </div>
                     </div>
 
                     <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200 space-y-3">
                         <h4 class="font-bold text-slate-800 text-sm">📋 Consigna Paso a Paso para los Estudiantes:</h4>
                         <ol class="text-xs md:text-sm text-slate-700 space-y-2 list-decimal pl-5">
-                            <li><strong>Problema contextualizado (Presupuesto para merienda escolar):</strong> <em>"Para preparar licuados en el taller escolar necesitamos comprar frutas. Si en una bolsa hay 4 bananas y en otra hay 5 bananas, ¿cuántas bananas tenemos en total? Si cada banana cuesta $200, ¿cuánto gastamos?"</em></li>
-                            <li><strong>Apoyo manipulable en PictoAprende:</strong> Ingresen a la pestaña <strong>«4. App PictoAprende»</strong>, seleccionen el modo <em>Juego Matemático</em> y utilicen las agrupaciones gráficas de frutas para visualizar las cantidades y verificar resultados.</li>
-                            <li><strong>Justificación sin barreras de escritura:</strong> Quienes tengan dificultades motrices o de lectoescritura pueden usar el <strong>dictado por voz</strong> del celular o Documentos de Google para explicar su razonamiento: <em>"Primero junté los dos grupos de frutas y conté el total..."</em>.</li>
+                            <li><strong>Problema contextualizado (Cálculo de costos y producción escolar):</strong> <em>"Para la feria de ciencias, cada grupo elabora kits tecnológicos. Si el costo fijo de materiales es de $1000 y cada kit adicional (x) cuesta $300, modela la ecuación para saber cuántos kits se pueden armar con $4000."</em></li>
+                            <li><strong>Apoyo interactivo en PictoAprende:</strong> Ingresen a la pestaña <strong>«4. App PictoAprende»</strong>, cambien al modo <em>Laboratorio Algebraico</em> y practiquen la resolución paso a paso de ecuaciones lineales con incógnitas y constantes.</li>
+                            <li><strong>Justificación accesible:</strong> Expliquen el despeje de la incógnita utilizando dictado por voz o un esquema conceptual esquemático en Google Drive.</li>
                         </ol>
                     </div>
                 </div>
@@ -303,7 +298,7 @@
                         </div>
                         <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
                             <p class="font-bold text-amber-800 text-xs uppercase">✅ Solución accesible e inclusiva:</p>
-                            <p class="text-slate-700 mt-1 text-xs">Lectura compartida con apoyos visuales, uso de Pictotraductor para mapear emociones/acciones de los personajes y producción sonora.</p>
+                            <p class="text-slate-700 mt-1 text-xs">Lectura compartida con apoyos visuales, uso del traductor visual para mapear emociones/acciones de los personajes y producción sonora.</p>
                         </div>
                     </div>
 
@@ -324,22 +319,20 @@
             </article>
         </section>
 
-        <!-- ===================================================================== -->
-        <!-- PESTAÑA 4: APLICACIÓN INTERACTIVA PICTOAPRENDE (OPCIÓN 1: IA ACTIVA)  -->
-        <!-- ===================================================================== -->
+        <!-- PESTAÑA 4: APLICACIÓN INTERACTIVA PICTOAPRENDE (SECUNDARIA) -->
         <section id="tab-picto" class="hidden space-y-6">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b pb-4">
                     <div>
                         <div class="flex items-center gap-2">
-                            <h2 class="text-2xl font-bold text-slate-800">🧩 PictoAprende · Generador Visual con IA</h2>
-                            <span class="bg-indigo-100 text-indigo-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Paso 1: IA Automática Activa</span>
+                            <h2 class="text-2xl font-bold text-slate-800">🧩 PictoAprende · Traductor & Laboratorio 3.° Año</h2>
+                            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Versión Secundaria</span>
                         </div>
-                        <p class="text-slate-500 text-sm mt-1">Escribe cualquier palabra nueva (ej: <em>volcán, célula, guitarra, átomo</em>) y presiona <strong>«✨ Traducir con IA»</strong> para generar su pictograma automáticamente.</p>
+                        <p class="text-slate-500 text-sm mt-1">Traductor ampliado con vocabulario académico y juvenil, y laboratorio de álgebra visual para secundaria.</p>
                     </div>
                     <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl">
-                        <button onclick="setGameMode('translator')" id="mode-trans" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow">1. Pictotraductor IA & Voz</button>
-                        <button onclick="setGameMode('mathgame')" id="mode-math" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50">2. Juego Matemático Visual</button>
+                        <button onclick="setGameMode('translator')" id="mode-trans" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow">1. Pictotraductor Escolar</button>
+                        <button onclick="setGameMode('mathgame')" id="mode-math" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50">2. Laboratorio Algebraico</button>
                     </div>
                 </div>
 
@@ -364,52 +357,42 @@
                     </div>
                 </div>
 
-                <!-- MODO 1: PICTOTRADUCTOR CON IA GENERATIVA -->
+                <!-- MODO 1: PICTOTRADUCTOR CON VOCABULARIO SECUNDARIO ROBUSTO -->
                 <div id="section-translator" class="mt-6 space-y-5">
                     <div class="flex flex-col sm:flex-row gap-2">
-                        <input type="text" id="phraseInput" onkeydown="if(event.key==='Enter') translateWithAI()" placeholder="Escribe una frase o palabra nueva (ej: yo quiero estudiar volcán y célula)..." class="flex-grow border-2 border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500">
-                        <button onclick="translateWithAI()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-xl font-bold text-sm shadow flex items-center justify-center gap-1.5 transition">✨ Traducir con IA</button>
-                        <button onclick="speakPhrase()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-3 rounded-xl font-bold text-sm shadow flex items-center justify-center gap-1.5 transition">🔊 Escuchar</button>
+                        <input type="text" id="phraseInput" onkeyup="translatePhrase()" placeholder="Escribe tu frase (ej: el joven estaba preocupado pero decidió buscar ayuda en la escuela)..." class="flex-grow border-2 border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500">
+                        <button onclick="speakPhrase()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-xl font-bold text-sm shadow flex items-center justify-center gap-1.5 transition">🔊 Escuchar Frase</button>
                         <button onclick="clearPhrase()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-3 rounded-xl text-sm font-semibold transition">Limpiar</button>
                     </div>
 
                     <!-- Lienzo de Pictogramas -->
-                    <div id="pictoOutput" class="min-h-[170px] bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-5 flex flex-wrap gap-3 items-center justify-center transition-colors">
-                        <span class="text-slate-400 text-sm italic">Escribe palabras arriba y presiona «✨ Traducir con IA», o toca tarjetas del tablero inferior...</span>
+                    <div id="pictoOutput" class="min-h-[160px] bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-5 flex flex-wrap gap-3 items-center justify-center transition-colors">
+                        <span class="text-slate-400 text-sm italic">Escribe arriba o selecciona tarjetas del tablero para traducir instantáneamente...</span>
                     </div>
 
-                    <!-- Leyenda de origen visual -->
-                    <div class="flex flex-wrap items-center justify-between text-[11px] text-slate-500 px-1">
-                        <span>💡 <strong>Cómo funciona:</strong> Las palabras escolares conocidas cargan al instante (sin gastar datos). Las palabras nuevas se generan automáticamente con IA visual.</span>
-                        <span class="text-indigo-600 font-semibold">Haz clic sobre cualquier tarjeta para escucharla</span>
-                    </div>
-
-                    <!-- Tablero Táctil por Categorías -->
+                    <!-- Tablero Táctil por Categorías (Secundaria) -->
                     <div class="pt-3 border-t space-y-3">
                         <div class="flex flex-wrap items-center justify-between gap-2">
-                            <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Tablero Táctil Rápido (Sin consumo de datos):</h3>
+                            <h3 class="text-xs font-bold text-slate-700 uppercase tracking-wider">Tablero Táctil de Comunicación (3.° Año):</h3>
                             <div class="flex gap-1 text-xs">
                                 <button onclick="filterBoard('all')" class="px-2.5 py-1 rounded-lg bg-indigo-100 text-indigo-800 font-bold">Todos</button>
                                 <button onclick="filterBoard('acciones')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium">Acciones</button>
-                                <button onclick="filterBoard('materias')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium">Materias</button>
+                                <button onclick="filterBoard('materias')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium">Áreas & Ciencia</button>
                                 <button onclick="filterBoard('emociones')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium">Emociones</button>
-                                <button onclick="filterBoard('frutas')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium">Frutas</button>
+                                <button onclick="filterBoard('tecno')" class="px-2.5 py-1 rounded-lg bg-slate-100 hover:bg-slate-200 font-medium">Tecnología</button>
                             </div>
                         </div>
                         <div id="touchBoard" class="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 gap-2"></div>
                     </div>
                 </div>
 
-                <!-- MODO 2: JUEGO MATEMÁTICO GRÁFICO -->
+                <!-- MODO 2: LABORATORIO ALGEBRAICO VISUAL (NIVEL SECUNDARIO) -->
                 <div id="section-mathgame" class="hidden mt-6 space-y-6">
                     <div class="bg-indigo-50/80 p-6 md:p-8 rounded-2xl border border-indigo-100 text-center max-w-3xl mx-auto">
-                        <div class="flex justify-center gap-2 mb-3">
-                            <button onclick="setMathOp('sum')" id="op-sum" class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-600 text-white">Sumas (+)</button>
-                            <button onclick="setMathOp('sub')" id="op-sub" class="px-3 py-1 rounded-full text-xs font-bold bg-white text-indigo-700 border">Restas (-)</button>
-                        </div>
-                        <h3 id="mathQuestion" class="text-lg md:text-2xl font-extrabold text-slate-800">Calcula el resultado observando las cantidades:</h3>
+                        <span class="bg-indigo-200 text-indigo-900 text-xs font-bold px-3 py-1 rounded-full">Laboratorio de Álgebra Visual · 3.° Año</span>
+                        <h3 id="mathQuestion" class="text-lg md:text-xl font-extrabold text-slate-800 mt-3">Resuelve la ecuación lineal planteada:</h3>
                         
-                        <div id="mathVisualContainer" class="flex flex-wrap justify-center items-center gap-4 my-6 text-3xl md:text-4xl min-h-[100px] bg-white p-5 rounded-2xl shadow-sm border border-indigo-100">
+                        <div id="mathVisualContainer" class="flex flex-col items-center justify-center gap-3 my-6 min-h-[110px] bg-white p-5 rounded-2xl shadow-sm border border-indigo-100">
                         </div>
 
                         <div id="mathOptions" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -418,8 +401,8 @@
                         <p id="mathFeedback" class="mt-4 font-bold text-sm min-h-[28px]"></p>
                         
                         <div class="mt-4 flex justify-center gap-3">
-                            <button onclick="speakMathQuestion()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow">🔊 Leer Problema</button>
-                            <button onclick="generateMathProblem()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow">Nuevo Ejercicio 🔄</button>
+                            <button onclick="speakMathQuestion()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2.5 rounded-xl text-xs font-bold shadow">🔊 Leer Consigna</button>
+                            <button onclick="generateAlgebraProblem()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2.5 rounded-xl text-xs font-bold shadow">Nuevo Desafío 🔄</button>
                         </div>
                     </div>
                 </div>
@@ -500,7 +483,7 @@
         Proyecto Integrador «Tecnología para Incluir» · 3.° Año Educación Secundaria · Diseño Accesible y Bajo Consumo de Datos.
     </footer>
 
-    <!-- Lógica JavaScript -->
+    <!-- Lógica JavaScript (Diccionario Ampliado para Secundaria + Álgebra Visual) -->
     <script>
         function switchTab(tabId) {
             ['proyecto', 'classroom', 'materias', 'picto', 'marco'].forEach(t => {
@@ -513,6 +496,9 @@
             const activeBtn = document.getElementById('btn-' + tabId);
             activeBtn.classList.remove('tab-btn-inactive');
             activeBtn.classList.add('tab-btn-active');
+            if(tabId === 'picto') {
+                generateAlgebraProblem();
+            }
         }
 
         function setGameMode(mode) {
@@ -526,44 +512,53 @@
                 document.getElementById('section-mathgame').classList.remove('hidden');
                 document.getElementById('mode-math').className = "px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow";
                 document.getElementById('mode-trans').className = "px-3.5 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50";
-                generateMathProblem();
+                generateAlgebraProblem();
             }
         }
 
-        // Diccionario base rápido (funciona 100% offline)
+        // Diccionario ampliado y robusto para nivel secundario (sin fallas de servidor)
         const pictoDictionary = {
-            "yo": { text: "Yo", emoji: "🧑", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
-            "quiero": { text: "Quiero", emoji: "🙋", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
+            "el": { text: "El", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "la": { text: "La", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "los": { text: "Los", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "las": { text: "Las", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "un": { text: "Un", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "una": { text: "Una", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "y": { text: "Y", emoji: "➕", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "o": { text: "O", emoji: "🔄", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "de": { text: "De", emoji: "➡️", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "en": { text: "En", emoji: "📍", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "a": { text: "A", emoji: "➡️", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "con": { text: "Con", emoji: "➕", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "pero": { text: "Pero", emoji: "⚖️", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
+            "joven": { text: "Joven", emoji: "🧑‍🎓", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "acciones" },
+            "estaba": { text: "Estaba", emoji: "⏳", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "acciones" },
+            "preocupado": { text: "Preocupado", emoji: "😟", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" },
+            "decidió": { text: "Decidió", emoji: "💡", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
+            "decidio": { text: "Decidió", emoji: "💡", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
+            "buscar": { text: "Buscar", emoji: "🔍", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "acciones" },
+            "ayuda": { text: "Ayuda", emoji: "🤝", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
+            "escuela": { text: "Escuela", emoji: "🏫", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "materias" },
             "estudiar": { text: "Estudiar", emoji: "📚", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
             "resolver": { text: "Resolver", emoji: "✏️", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
-            "ayuda": { text: "Ayuda", emoji: "🤝", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
-            "escuchar": { text: "Escuchar", emoji: "👂", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
             "ciencias": { text: "Ciencias", emoji: "🔬", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "materias" },
             "agua": { text: "Agua", emoji: "💧", bg: "bg-cyan-50 border-cyan-300 text-cyan-900", cat: "materias" },
-            "lluvia": { text: "Precipitación", emoji: "🌧️", bg: "bg-cyan-50 border-cyan-300 text-cyan-900", cat: "materias" },
-            "evaporacion": { text: "Evaporación", emoji: "♨️", bg: "bg-cyan-50 border-cyan-300 text-cyan-900", cat: "materias" },
             "matematica": { text: "Matemática", emoji: "🔢", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "materias" },
             "lengua": { text: "Lengua", emoji: "📖", bg: "bg-purple-50 border-purple-300 text-purple-900", cat: "materias" },
-            "escuela": { text: "Escuela", emoji: "🏫", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "materias" },
+            "tecnologia": { text: "Tecnología", emoji: "⚙️", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
+            "celular": { text: "Celular", emoji: "📱", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
+            "netbook": { text: "Netbook", emoji: "💻", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
+            "ia": { text: "Inteligencia Artificial", emoji: "🤖", bg: "bg-purple-100 border-purple-300 text-purple-900", cat: "tecno" },
             "feliz": { text: "Feliz", emoji: "😊", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" },
-            "preocupado": { text: "Preocupado", emoji: "😟", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" },
-            "tranquilo": { text: "Tranquilo", emoji: "😌", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" },
-            "bananas": { text: "Bananas", emoji: "🍌", bg: "bg-yellow-50 border-yellow-300 text-yellow-900", cat: "frutas" },
-            "banana": { text: "Banana", emoji: "🍌", bg: "bg-yellow-50 border-yellow-300 text-yellow-900", cat: "frutas" },
-            "manzana": { text: "Manzana", emoji: "🍎", bg: "bg-red-50 border-red-300 text-red-900", cat: "frutas" },
-            "manzanas": { text: "Manzanas", emoji: "🍎", bg: "bg-red-50 border-red-300 text-red-900", cat: "frutas" },
-            "naranja": { text: "Naranja", emoji: "🍊", bg: "bg-orange-50 border-orange-300 text-orange-900", cat: "frutas" }
+            "tranquilo": { text: "Tranquilo", emoji: "😌", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" }
         };
-
-        // Conectores gramaticales cortos para no gastar IA en artículos/preposiciones
-        const stopWords = new Set(["el", "la", "los", "las", "un", "una", "y", "o", "de", "del", "en", "a", "con", "por", "para", "es", "son", "que"]);
 
         let isCaps = false;
         let currentFilter = 'all';
 
         function renderTouchBoard() {
             const board = document.getElementById('touchBoard');
-            const keys = Object.keys(pictoDictionary).filter(k => !['banana', 'manzanas'].includes(k));
+            const keys = Object.keys(pictoDictionary).filter(k => k.length > 2);
             const filtered = currentFilter === 'all' ? keys : keys.filter(k => pictoDictionary[k].cat === currentFilter);
             
             board.innerHTML = filtered.map(key => {
@@ -585,13 +580,13 @@
         function addPictoWord(word) {
             const input = document.getElementById('phraseInput');
             input.value += (input.value ? " " : "") + word;
-            translateWithAI();
+            translatePhrase();
             speakSingle(word);
         }
 
         function toggleCaps() {
             isCaps = document.getElementById('capsToggle').checked;
-            translateWithAI();
+            translatePhrase();
             renderTouchBoard();
         }
 
@@ -611,55 +606,36 @@
             return w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,!?¿¡]/g, "");
         }
 
-        // OPCIÓN 1: Traducción con Diccionario Local + Generación Automática por IA
-        function translateWithAI() {
+        // Traductor robusto con respaldo inteligente para secundaria
+        function translatePhrase() {
             const rawText = document.getElementById('phraseInput').value.trim();
             const output = document.getElementById('pictoOutput');
             if (!rawText) {
-                output.innerHTML = `<span class="text-slate-400 text-sm italic">Escribe palabras arriba y presiona «✨ Traducir con IA», o toca tarjetas del tablero inferior...</span>`;
+                output.innerHTML = `<span class="text-slate-400 text-sm italic">Escribe arriba o selecciona tarjetas del tablero para traducir instantáneamente...</span>`;
                 return;
             }
 
             const words = rawText.split(/\s+/);
-            output.innerHTML = words.map((w, idx) => {
+            output.innerHTML = words.map(w => {
                 const clean = normalizeWord(w);
                 if (!clean) return '';
 
-                // 1. Palabra en diccionario escolar local (instantáneo y offline)
-                if (pictoDictionary[clean]) {
-                    const item = pictoDictionary[clean];
-                    let labelText = isCaps ? item.text.toUpperCase() : item.text;
-                    return `
-                        <div onclick="speakSingle('${item.text}')" class="cursor-pointer flex flex-col items-center p-3 rounded-2xl border-2 ${item.bg} shadow-sm picto-card min-w-[92px]">
-                            <span class="text-4xl my-1">${item.emoji}</span>
-                            <span class="text-xs font-extrabold mt-1">${labelText}</span>
-                        </div>
-                    `;
+                let item = pictoDictionary[clean];
+                
+                // Si la palabra no está en el diccionario, creamos un pictograma inteligente con iniciales y emoji genérico seguro
+                if (!item) {
+                    item = { 
+                        text: w, 
+                        emoji: "📖", 
+                        bg: "bg-indigo-50 border-indigo-200 text-indigo-900" 
+                    };
                 }
 
-                // 2. Conectores gramaticales (sin imagen para mantener claridad Mayer)
-                if (stopWords.has(clean)) {
-                    let labelText = isCaps ? w.toUpperCase() : w.toLowerCase();
-                    return `
-                        <div onclick="speakSingle('${w}')" class="cursor-pointer flex flex-col items-center justify-center px-3 py-2 rounded-xl border border-slate-200 bg-white text-slate-500 shadow-sm min-w-[48px] h-[88px]">
-                            <span class="text-xs font-bold">${labelText}</span>
-                        </div>
-                    `;
-                }
-
-                // 3. Palabra NUEVA -> Generación automática mediante IA visual (Pollinations) con respaldo de ícono
-                let labelText = isCaps ? w.toUpperCase() : w;
-                const prompt = encodeURIComponent(`simple educational pictogram icon flat vector illustration of ${clean} isolated on pure white background, minimal, clear`);
-                const aiUrl = `https://image.pollinations.ai/prompt/${prompt}?width=160&height=160&nologo=true&seed=${clean.length * 17}`;
-                const fallbackIcon = `https://api.iconify.design/fluent-emoji-flat:sparkles.svg`;
-
+                let labelText = isCaps ? item.text.toUpperCase() : item.text;
                 return `
-                    <div onclick="speakSingle('${w}')" class="cursor-pointer flex flex-col items-center p-2.5 rounded-2xl border-2 bg-indigo-50/90 border-indigo-300 text-indigo-950 shadow-sm picto-card min-w-[96px] relative">
-                        <span class="absolute -top-2 -right-2 bg-indigo-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full shadow">IA</span>
-                        <div class="w-14 h-14 rounded-xl bg-white border border-indigo-100 flex items-center justify-center overflow-hidden p-1">
-                            <img src="${aiUrl}" alt="${w}" loading="lazy" class="w-full h-full object-contain" onerror="this.onerror=null; this.src='${fallbackIcon}';">
-                        </div>
-                        <span class="text-xs font-extrabold mt-1.5">${labelText}</span>
+                    <div onclick="speakSingle('${item.text}')" class="cursor-pointer flex flex-col items-center p-3 rounded-2xl border-2 ${item.bg} shadow-sm picto-card min-w-[88px]">
+                        <span class="text-3xl my-1">${item.emoji}</span>
+                        <span class="text-xs font-extrabold mt-1">${labelText}</span>
                     </div>
                 `;
             }).join('');
@@ -681,89 +657,59 @@
 
         function clearPhrase() {
             document.getElementById('phraseInput').value = '';
-            translateWithAI();
+            translatePhrase();
         }
 
-        // Juego Matemático Visual
-        let currentCorrectAnswer = 0;
-        let currentMathOp = 'sum';
-        let currentQuestionSpeech = '';
+        // Laboratorio Algebraico para Secundaria (En reemplazo de las frutas)
+        let currentAlgebraAnswer = 0;
+        let currentAlgebraSpeech = '';
 
-        function setMathOp(op) {
-            currentMathOp = op;
-            document.getElementById('op-sum').className = op === 'sum' ? "px-3 py-1 rounded-full text-xs font-bold bg-indigo-600 text-white" : "px-3 py-1 rounded-full text-xs font-bold bg-white text-indigo-700 border";
-            document.getElementById('op-sub').className = op === 'sub' ? "px-3 py-1 rounded-full text-xs font-bold bg-indigo-600 text-white" : "px-3 py-1 rounded-full text-xs font-bold bg-white text-indigo-700 border";
-            generateMathProblem();
-        }
+        function generateAlgebraProblem() {
+            const a = Math.floor(Math.random() * 3) + 2; // Coeficiente 2..4
+            const b = Math.floor(Math.random() * 6) + 2; // Constante 2..7
+            const x = Math.floor(Math.random() * 5) + 2; // Incógnita solución 2..6
+            const total = (a * x) + b;
+            currentAlgebraAnswer = x;
 
-        function generateMathProblem() {
-            const fruits = [
-                { emoji: "🍌", name: "bananas" },
-                { emoji: "🍎", name: "manzanas" },
-                { emoji: "🍊", name: "naranjas" }
-            ];
-            const selectedFruit = fruits[Math.floor(Math.random() * fruits.length)];
-            let num1, num2, symbol;
-
-            if (currentMathOp === 'sum') {
-                num1 = Math.floor(Math.random() * 4) + 1;
-                num2 = Math.floor(Math.random() * 4) + 1;
-                currentCorrectAnswer = num1 + num2;
-                symbol = "+";
-                currentQuestionSpeech = `Si tenemos ${num1} ${selectedFruit.name} y sumamos ${num2} ${selectedFruit.name}, ¿cuántas ${selectedFruit.name} hay en total?`;
-                document.getElementById('mathQuestion').innerText = `${num1} ${selectedFruit.name} + ${num2} ${selectedFruit.name} = ¿?`;
-            } else {
-                num1 = Math.floor(Math.random() * 4) + 4;
-                num2 = Math.floor(Math.random() * 3) + 1;
-                currentCorrectAnswer = num1 - num2;
-                symbol = "-";
-                currentQuestionSpeech = `Si tenemos ${num1} ${selectedFruit.name} y quitamos ${num2} ${selectedFruit.name}, ¿cuántas quedan?`;
-                document.getElementById('mathQuestion').innerText = `${num1} ${selectedFruit.name} - ${num2} ${selectedFruit.name} = ¿?`;
-            }
+            currentAlgebraSpeech = `Halla el valor de x en la ecuación ${a} por x más ${b} igual a ${total}`;
+            document.getElementById('mathQuestion').innerText = `Halla la incógnita (x) en la ecuación:`;
 
             document.getElementById('mathVisualContainer').innerHTML = `
-                <div class="flex flex-col items-center bg-slate-50 px-4 py-2.5 rounded-2xl border border-slate-200">
-                    <div class="tracking-widest">${selectedFruit.emoji.repeat(num1)}</div>
-                    <span class="text-xs font-extrabold text-indigo-700 mt-1">${num1} ${selectedFruit.name}</span>
+                <div class="bg-indigo-50 border border-indigo-200 px-6 py-3 rounded-xl font-mono text-xl md:text-2xl font-bold text-indigo-950">
+                    ${a}x + ${b} = ${total}
                 </div>
-                <span class="text-indigo-600 font-black text-3xl">${symbol}</span>
-                <div class="flex flex-col items-center bg-slate-50 px-4 py-2.5 rounded-2xl border border-slate-200">
-                    <div class="tracking-widest">${selectedFruit.emoji.repeat(num2)}</div>
-                    <span class="text-xs font-extrabold text-indigo-700 mt-1">${num2} ${selectedFruit.name}</span>
-                </div>
-                <span class="text-indigo-600 font-black text-3xl">=</span>
-                <div class="bg-amber-50 border-2 border-dashed border-amber-300 px-5 py-3 rounded-2xl text-amber-600 font-black">?</div>
+                <p class="text-xs text-slate-500 mt-2">Despeja la incógnita paso a paso restando ${b} y dividiendo por ${a}.</p>
             `;
 
             document.getElementById('mathFeedback').innerHTML = '';
 
-            let options = [currentCorrectAnswer];
+            let options = [currentAlgebraAnswer];
             while (options.length < 4) {
-                let wrong = Math.floor(Math.random() * 8) + 1;
+                let wrong = Math.floor(Math.random() * 7) + 1;
                 if (!options.includes(wrong)) options.push(wrong);
             }
             options.sort(() => Math.random() - 0.5);
 
             document.getElementById('mathOptions').innerHTML = options.map(opt => `
-                <button onclick="checkMathAnswer(${opt})" class="p-3.5 bg-white border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/40 rounded-2xl shadow-sm transition flex flex-col items-center justify-center gap-1.5">
-                    <span class="text-2xl font-black text-slate-800">${opt}</span>
-                    <span class="text-sm leading-tight break-all">${selectedFruit.emoji.repeat(opt)}</span>
+                <button onclick="checkAlgebraAnswer(${opt})" class="p-3.5 bg-white border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/40 rounded-2xl shadow-sm transition flex flex-col items-center justify-center gap-1">
+                    <span class="text-xl font-extrabold text-slate-800">x = ${opt}</span>
+                    <span class="text-[10px] text-slate-500">Verificar valor</span>
                 </button>
             `).join('');
         }
 
         function speakMathQuestion() {
-            speakSingle(currentQuestionSpeech);
+            speakSingle(currentAlgebraSpeech);
         }
 
-        function checkMathAnswer(selected) {
+        function checkAlgebraAnswer(selected) {
             const feedback = document.getElementById('mathFeedback');
-            if (selected === currentCorrectAnswer) {
-                feedback.innerHTML = `<span class="text-emerald-800 bg-emerald-100 px-4 py-2 rounded-xl border border-emerald-300 inline-block">🎉 ¡Correcto! El resultado es ${currentCorrectAnswer}.</span>`;
-                speakSingle(`¡Muy bien! El resultado correcto es ${currentCorrectAnswer}`);
+            if (selected === currentAlgebraAnswer) {
+                feedback.innerHTML = `<span class="text-emerald-800 bg-emerald-100 px-4 py-2 rounded-xl border border-emerald-300 inline-block">🎉 ¡Correcto! x = ${currentAlgebraAnswer} resuelve la ecuación.</span>`;
+                speakSingle(`¡Excelente! El valor de x es ${currentAlgebraAnswer}`);
             } else {
-                feedback.innerHTML = `<span class="text-rose-800 bg-rose-100 px-4 py-2 rounded-xl border border-rose-300 inline-block">❌ No es ${selected}. Cuenta nuevamente los dibujos.</span>`;
-                speakSingle("Intenta de nuevo contando los dibujos");
+                feedback.innerHTML = `<span class="text-rose-800 bg-rose-100 px-4 py-2 rounded-xl border border-rose-300 inline-block">❌ Incorrecto. Reemplaza x por el número y verifica la igualdad.</span>`;
+                speakSingle("Intenta nuevamente despejando la ecuación");
             }
         }
 
