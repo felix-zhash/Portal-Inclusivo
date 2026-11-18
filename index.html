@@ -325,10 +325,10 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b pb-4">
                     <div>
                         <div class="flex items-center gap-2">
-                            <h2 class="text-2xl font-bold text-slate-800">🧩 PictoAprende · Traductor & Laboratorio 3.° Año</h2>
-                            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Versión Secundaria</span>
+                            <h2 class="text-2xl font-bold text-slate-800">🧩 PictoAprende · Traductor Escolar Avanzado</h2>
+                            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Sistema Robusto Local</span>
                         </div>
-                        <p class="text-slate-500 text-sm mt-1">Traductor ampliado con vocabulario académico y juvenil, y laboratorio de álgebra visual para secundaria.</p>
+                        <p class="text-slate-500 text-sm mt-1">Traductor instantáneo optimizado con respaldo inteligente para secundaria. Escribe cualquier frase y se representará de forma clara y sin errores de servidor.</p>
                     </div>
                     <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl">
                         <button onclick="setGameMode('translator')" id="mode-trans" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow">1. Pictotraductor Escolar</button>
@@ -357,7 +357,7 @@
                     </div>
                 </div>
 
-                <!-- MODO 1: PICTOTRADUCTOR CON VOCABULARIO SECUNDARIO ROBUSTO -->
+                <!-- MODO 1: PICTOTRADUCTOR CON SOPORTE ROBUSTO SECUNDARIO -->
                 <div id="section-translator" class="mt-6 space-y-5">
                     <div class="flex flex-col sm:flex-row gap-2">
                         <input type="text" id="phraseInput" onkeyup="translatePhrase()" placeholder="Escribe tu frase (ej: el joven estaba preocupado pero decidió buscar ayuda en la escuela)..." class="flex-grow border-2 border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500">
@@ -455,7 +455,7 @@
                     </div>
                     <div class="p-4 rounded-xl bg-blue-50 border border-blue-200">
                         <strong class="text-blue-900 block text-sm mb-1">Conocimiento Pedagógico (PK)</strong>
-                        DUA, principios de Mayer, eliminación de barreras (Mel Ainscow), andamiaje mediado (Lev Vygotsky) y evaluación formativa.
+                        DUA, principles de Mayer, eliminación de barreras (Mel Ainscow), andamiaje mediado (Lev Vygotsky) y evaluación formativa.
                     </div>
                     <div class="p-4 rounded-xl bg-purple-50 border border-purple-200">
                         <strong class="text-purple-900 block text-sm mb-1">Conocimiento Tecnológico (TK)</strong>
@@ -483,7 +483,7 @@
         Proyecto Integrador «Tecnología para Incluir» · 3.° Año Educación Secundaria · Diseño Accesible y Bajo Consumo de Datos.
     </footer>
 
-    <!-- Lógica JavaScript (Diccionario Ampliado para Secundaria + Álgebra Visual) -->
+    <!-- Lógica JavaScript (Traductor Robusto sin dependencias de IA externa) -->
     <script>
         function switchTab(tabId) {
             ['proyecto', 'classroom', 'materias', 'picto', 'marco'].forEach(t => {
@@ -516,7 +516,7 @@
             }
         }
 
-        // Diccionario ampliado y robusto para nivel secundario (sin fallas de servidor)
+        // Diccionario ampliado y robusto para nivel secundario
         const pictoDictionary = {
             "el": { text: "El", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
             "la": { text: "La", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
@@ -541,9 +541,12 @@
             "escuela": { text: "Escuela", emoji: "🏫", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "materias" },
             "estudiar": { text: "Estudiar", emoji: "📚", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
             "resolver": { text: "Resolver", emoji: "✏️", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
+            "problema": { text: "Problema", emoji: "🧩", bg: "bg-purple-50 border-purple-300 text-purple-900", cat: "materias" },
+            "matematico": { text: "Matemático", emoji: "📐", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "materias" },
+            "matematica": { text: "Matemática", emoji: "🔢", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "materias" },
+            "muestra": { text: "Muestra", emoji: "👁️", bg: "bg-cyan-50 border-cyan-300 text-cyan-900", cat: "acciones" },
             "ciencias": { text: "Ciencias", emoji: "🔬", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "materias" },
             "agua": { text: "Agua", emoji: "💧", bg: "bg-cyan-50 border-cyan-300 text-cyan-900", cat: "materias" },
-            "matematica": { text: "Matemática", emoji: "🔢", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "materias" },
             "lengua": { text: "Lengua", emoji: "📖", bg: "bg-purple-50 border-purple-300 text-purple-900", cat: "materias" },
             "tecnologia": { text: "Tecnología", emoji: "⚙️", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
             "celular": { text: "Celular", emoji: "📱", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
@@ -606,7 +609,7 @@
             return w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,!?¿¡]/g, "");
         }
 
-        // Traductor robusto con respaldo inteligente para secundaria
+        // Traductor instantáneo en vivo (al escribir o presionar teclas)
         function translatePhrase() {
             const rawText = document.getElementById('phraseInput').value.trim();
             const output = document.getElementById('pictoOutput');
@@ -622,11 +625,11 @@
 
                 let item = pictoDictionary[clean];
                 
-                // Si la palabra no está en el diccionario, creamos un pictograma inteligente con iniciales y emoji genérico seguro
+                // Si la palabra no está registrada, genera una tarjeta limpia basada en su inicial y emoji genérico seguro
                 if (!item) {
                     item = { 
                         text: w, 
-                        emoji: "📖", 
+                        emoji: "📝", 
                         bg: "bg-indigo-50 border-indigo-200 text-indigo-900" 
                     };
                 }
@@ -660,14 +663,14 @@
             translatePhrase();
         }
 
-        // Laboratorio Algebraico para Secundaria (En reemplazo de las frutas)
+        // Laboratorio Algebraico para Secundaria
         let currentAlgebraAnswer = 0;
         let currentAlgebraSpeech = '';
 
         function generateAlgebraProblem() {
-            const a = Math.floor(Math.random() * 3) + 2; // Coeficiente 2..4
-            const b = Math.floor(Math.random() * 6) + 2; // Constante 2..7
-            const x = Math.floor(Math.random() * 5) + 2; // Incógnita solución 2..6
+            const a = Math.floor(Math.random() * 3) + 2;
+            const b = Math.floor(Math.random() * 6) + 2;
+            const x = Math.floor(Math.random() * 5) + 2;
             const total = (a * x) + b;
             currentAlgebraAnswer = x;
 
