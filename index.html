@@ -464,7 +464,7 @@
                     </div>
                     <div class="p-4 rounded-xl bg-blue-50 border border-blue-200">
                         <strong class="text-blue-900 block text-sm mb-1">Conocimiento Pedagógico (PK)</strong>
-                        DUA, principios de Mayer, eliminación de barreras (Mel Ainscow), andamiaje mediado (Lev Vygotsky) y evaluación formativa.
+                        DUA, principles de Mayer, eliminación de barreras (Mel Ainscow), andamiaje mediado (Lev Vygotsky) y evaluación formativa.
                     </div>
                     <div class="p-4 rounded-xl bg-purple-50 border border-purple-200">
                         <strong class="text-purple-900 block text-sm mb-1">Conocimiento Tecnológico (TK)</strong>
@@ -492,35 +492,46 @@
         Proyecto Integrador «Tecnología para Incluir» · 3.° Año Educación Secundaria · Diseño Accesible y Bajo Consumo de Datos.
     </footer>
 
-    <!-- Lógica JavaScript Definitiva -->
+    <!-- Lógica JavaScript Corregida y Robusta -->
     <script>
         function switchTab(tabId) {
             ['proyecto', 'classroom', 'materias', 'picto', 'marco'].forEach(t => {
-                document.getElementById('tab-' + t).classList.add('hidden');
+                const el = document.getElementById('tab-' + t);
                 const btn = document.getElementById('btn-' + t);
-                btn.classList.remove('tab-btn-active');
-                btn.classList.add('tab-btn-inactive');
+                if (el) el.classList.add('hidden');
+                if (btn) {
+                    btn.classList.remove('tab-btn-active');
+                    btn.classList.add('tab-btn-inactive');
+                }
             });
-            document.getElementById('tab-' + tabId).classList.remove('hidden');
-            const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.classList.remove('tab-btn-inactive');
-            activeBtn.classList.add('tab-btn-active');
+            const targetTab = document.getElementById('tab-' + tabId);
+            const targetBtn = document.getElementById('btn-' + tabId);
+            if (targetTab) targetTab.classList.remove('hidden');
+            if (targetBtn) {
+                targetBtn.classList.remove('tab-btn-inactive');
+                targetBtn.classList.add('tab-btn-active');
+            }
             if(tabId === 'picto') {
                 generateAlgebraProblem();
             }
         }
 
         function setGameMode(mode) {
+            const transSec = document.getElementById('section-translator');
+            const mathSec = document.getElementById('section-mathgame');
+            const btnTrans = document.getElementById('mode-trans');
+            const btnMath = document.getElementById('mode-math');
+
             if (mode === 'translator') {
-                document.getElementById('section-translator').classList.remove('hidden');
-                document.getElementById('section-mathgame').classList.add('hidden');
-                document.getElementById('mode-trans').className = "px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow";
-                document.getElementById('mode-math').className = "px-3.5 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50";
+                if(transSec) transSec.classList.remove('hidden');
+                if(mathSec) mathSec.classList.add('hidden');
+                if(btnTrans) btnTrans.className = "px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow";
+                if(btnMath) btnMath.className = "px-3.5 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50";
             } else {
-                document.getElementById('section-translator').classList.add('hidden');
-                document.getElementById('section-mathgame').classList.remove('hidden');
-                document.getElementById('mode-math').className = "px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow";
-                document.getElementById('mode-trans').className = "px-3.5 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50";
+                if(transSec) transSec.classList.add('hidden');
+                if(mathSec) mathSec.classList.remove('hidden');
+                if(btnMath) btnMath.className = "px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow";
+                if(btnTrans) btnTrans.className = "px-3.5 py-2 rounded-lg text-xs font-bold bg-white text-slate-700 border hover:bg-slate-50";
                 generateAlgebraProblem();
             }
         }
@@ -565,7 +576,7 @@
             "tranquilo": { text: "Tranquilo", type: "emoji", content: "😌", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" }
         };
 
-        // Cargar almacenamiento local garantizando claves normalizadas
+        // Cargar almacenamiento local normalizado
         let rawCustomDict = JSON.parse(localStorage.getItem('userPictoDict') || '{}');
         let customDict = {};
         for (let k in rawCustomDict) {
@@ -578,21 +589,21 @@
 
         function toggleAddModal() {
             const modal = document.getElementById('addModal');
-            modal.classList.toggle('hidden');
+            if (modal) modal.classList.toggle('hidden');
         }
 
-        // Subida de imagen local con normalización de claves
+        // Subida de imagen local con sincronización inmediata en diccionario y tablero
         function addNewPictoWithImage() {
             const wordInput = document.getElementById('newWord').value.trim();
             const fileInput = document.getElementById('imageFile');
             const feedback = document.getElementById('modalFeedback');
 
-            if (!wordInput || fileInput.files.length === 0) {
-                feedback.innerHTML = `<span class="text-rose-700">⚠️ Ingresa una palabra y selecciona una imagen de tu dispositivo.</span>`;
+            if (!wordInput || !fileInput || fileInput.files.length === 0) {
+                if (feedback) feedback.innerHTML = `<span class="text-rose-700">⚠️ Ingresa una palabra y selecciona una imagen.</span>`;
                 return;
             }
 
-            const cleanKey = wordInput.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            const cleanKey = wordInput.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
             const file = fileInput.files[0];
             const reader = new FileReader();
 
@@ -610,20 +621,22 @@
                 localStorage.setItem('userPictoDict', JSON.stringify(customDict));
                 pictoDictionary = { ...basePictoDictionary, ...customDict };
 
-                feedback.innerHTML = `<span class="text-emerald-700">🎉 ¡Guardado con éxito! "${wordInput}" ya está disponible.</span>`;
+                if (feedback) feedback.innerHTML = `<span class="text-emerald-700">🎉 ¡Guardado! "${wordInput}" ya está disponible en el traductor.</span>`;
                 document.getElementById('newWord').value = '';
                 fileInput.value = '';
+                
                 renderTouchBoard();
                 translatePhrase();
 
                 setTimeout(() => {
-                    document.getElementById('addModal').classList.add('hidden');
-                    feedback.innerHTML = '';
+                    const modal = document.getElementById('addModal');
+                    if (modal) modal.classList.add('hidden');
+                    if (feedback) feedback.innerHTML = '';
                 }, 2000);
             };
 
             reader.onerror = function() {
-                feedback.innerHTML = `<span class="text-rose-700">❌ Error al procesar la imagen.</span>`;
+                if (feedback) feedback.innerHTML = `<span class="text-rose-700">❌ Error al procesar el archivo de imagen.</span>`;
             };
 
             reader.readAsDataURL(file);
@@ -631,6 +644,8 @@
 
         function renderTouchBoard() {
             const board = document.getElementById('touchBoard');
+            if (!board) return;
+            
             const keys = Object.keys(pictoDictionary);
             const filtered = currentFilter === 'all' ? keys : keys.filter(k => pictoDictionary[k].cat === currentFilter);
             
@@ -656,21 +671,25 @@
 
         function addPictoWord(word) {
             const input = document.getElementById('phraseInput');
+            if (!input) return;
             input.value += (input.value ? " " : "") + word;
             translatePhrase();
             speakSingle(pictoDictionary[word] ? pictoDictionary[word].text : word);
         }
 
         function toggleCaps() {
-            isCaps = document.getElementById('capsToggle'].checked;
+            const capsToggle = document.getElementById('capsToggle');
+            isCaps = capsToggle ? capsToggle.checked : false;
             translatePhrase();
             renderTouchBoard();
         }
 
         function toggleContrast() {
-            const isHC = document.getElementById('contrastToggle').checked;
+            const contrastToggle = document.getElementById('contrastToggle');
             const out = document.getElementById('pictoOutput');
-            if (isHC) {
+            if (!contrastToggle || !out) return;
+            
+            if (contrastToggle.checked) {
                 out.classList.remove('bg-slate-50');
                 out.classList.add('bg-slate-900', 'border-yellow-400');
             } else {
@@ -680,12 +699,15 @@
         }
 
         function normalizeWord(w) {
-            return w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,!?¿¡]/g, "");
+            return w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,!?¿¡]/g, "").trim();
         }
 
         function translatePhrase() {
-            const rawText = document.getElementById('phraseInput').value.trim();
+            const input = document.getElementById('phraseInput');
             const output = document.getElementById('pictoOutput');
+            if (!input || !output) return;
+
+            const rawText = input.value.trim();
             if (!rawText) {
                 output.innerHTML = `<span class="text-slate-400 text-sm italic">Escribe arriba o selecciona tarjetas del tablero para traducir instantáneamente...</span>`;
                 return;
@@ -721,20 +743,17 @@
             }).join('');
         }
 
-        // Síntesis de voz optimizada con activación por gesto de usuario
+        // Síntesis de voz robusta
         function speakSingle(text) {
             if (!('speechSynthesis' in window)) {
-                alert("Tu navegador no soporta síntesis de voz.");
                 return;
             }
-            
             window.speechSynthesis.cancel();
             
-            // Retardo breve para asegurar que el navegador libere el canal de audio anterior
             setTimeout(() => {
                 const utterance = new SpeechSynthesisUtterance(text);
                 utterance.lang = 'es-ES';
-                utterance.rate = parseFloat(document.getElementById('voiceSpeed').value);
+                utterance.rate = 1.0;
                 
                 const voices = window.speechSynthesis.getVoices();
                 const spanishVoice = voices.find(v => v.lang.startsWith('es'));
@@ -747,17 +766,19 @@
         }
 
         function speakPhrase() {
-            const text = document.getElementById('phraseInput').value.trim();
-            if (!text) return;
-            speakSingle(text);
+            const input = document.getElementById('phraseInput');
+            if (!input) return;
+            const text = input.value.trim();
+            if (text) speakSingle(text);
         }
 
         function clearPhrase() {
-            document.getElementById('phraseInput').value = '';
+            const input = document.getElementById('phraseInput');
+            if (input) input.value = '';
             translatePhrase();
         }
 
-        // Laboratorio Algebraico para Secundaria
+        // Laboratorio Algebraico
         let currentAlgebraAnswer = 0;
         let currentAlgebraSpeech = '';
 
@@ -769,16 +790,22 @@
             currentAlgebraAnswer = x;
 
             currentAlgebraSpeech = `Halla el valor de x en la ecuación ${a} por x más ${b} igual a ${total}`;
-            document.getElementById('mathQuestion').innerText = `Halla la incógnita (x) en la ecuación:`;
+            
+            const qEl = document.getElementById('mathQuestion');
+            const vEl = document.getElementById('mathVisualContainer');
+            const fEl = document.getElementById('mathFeedback');
+            const oEl = document.getElementById('mathOptions');
 
-            document.getElementById('mathVisualContainer').innerHTML = `
-                <div class="bg-indigo-50 border border-indigo-200 px-6 py-3 rounded-xl font-mono text-xl md:text-2xl font-bold text-indigo-950">
-                    ${a}x + ${b} = ${total}
-                </div>
-                <p class="text-xs text-slate-500 mt-2">Despeja la incógnita paso a paso restando ${b} y dividiendo por ${a}.</p>
-            `;
-
-            document.getElementById('mathFeedback').innerHTML = '';
+            if (qEl) qEl.innerText = `Halla la incógnita (x) en la ecuación:`;
+            if (vEl) {
+                vEl.innerHTML = `
+                    <div class="bg-indigo-50 border border-indigo-200 px-6 py-3 rounded-xl font-mono text-xl md:text-2xl font-bold text-indigo-950">
+                        ${a}x + ${b} = ${total}
+                    </div>
+                    <p class="text-xs text-slate-500 mt-2">Despeja la incógnita paso a paso restando ${b} y dividiendo por ${a}.</p>
+                `;
+            }
+            if (fEl) fEl.innerHTML = '';
 
             let options = [currentAlgebraAnswer];
             while (options.length < 4) {
@@ -787,12 +814,14 @@
             }
             options.sort(() => Math.random() - 0.5);
 
-            document.getElementById('mathOptions').innerHTML = options.map(opt => `
-                <button onclick="checkAlgebraAnswer(${opt})" class="p-3.5 bg-white border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/40 rounded-2xl shadow-sm transition flex flex-col items-center justify-center gap-1">
-                    <span class="text-xl font-extrabold text-slate-800">x = ${opt}</span>
-                    <span class="text-[10px] text-slate-500">Verificar valor</span>
-                </button>
-            `).join('');
+            if (oEl) {
+                oEl.innerHTML = options.map(opt => `
+                    <button onclick="checkAlgebraAnswer(${opt})" class="p-3.5 bg-white border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50/40 rounded-2xl shadow-sm transition flex flex-col items-center justify-center gap-1">
+                        <span class="text-xl font-extrabold text-slate-800">x = ${opt}</span>
+                        <span class="text-[10px] text-slate-500">Verificar valor</span>
+                    </button>
+                `).join('');
+            }
         }
 
         function speakMathQuestion() {
@@ -801,6 +830,8 @@
 
         function checkAlgebraAnswer(selected) {
             const feedback = document.getElementById('mathFeedback');
+            if (!feedback) return;
+
             if (selected === currentAlgebraAnswer) {
                 feedback.innerHTML = `<span class="text-emerald-800 bg-emerald-100 px-4 py-2 rounded-xl border border-emerald-300 inline-block">🎉 ¡Correcto! x = ${currentAlgebraAnswer} resuelve la ecuación.</span>`;
                 speakSingle(`¡Excelente! El valor de x es ${currentAlgebraAnswer}`);
@@ -816,6 +847,7 @@
             };
         }
 
+        // Inicializar tablero al cargar la página
         renderTouchBoard();
     </script>
 </body>
