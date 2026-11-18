@@ -319,16 +319,16 @@
             </article>
         </section>
 
-        <!-- PESTAÑA 4: APLICACIÓN INTERACTIVA PICTOAPRENDE (CON EDITOR PERSONALIZADO) -->
+        <!-- PESTAÑA 4: APLICACIÓN INTERACTIVA PICTOAPRENDE (SUBIDA LOCAL DE IMÁGENES + VOZ REPARADA) -->
         <section id="tab-picto" class="hidden space-y-6">
             <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b pb-4">
                     <div>
                         <div class="flex items-center gap-2">
                             <h2 class="text-2xl font-bold text-slate-800">🧩 PictoAprende · Traductor & Creador Estudiantil</h2>
-                            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Diccionario Expandible</span>
+                            <span class="bg-emerald-100 text-emerald-800 text-[11px] font-bold px-2.5 py-0.5 rounded-full">Sube tus Imágenes (IA o Descargas)</span>
                         </div>
-                        <p class="text-slate-500 text-sm mt-1">Traductor instantáneo. Si falta una palabra, los estudiantes pueden agregarla al instante con su propio emoji o imagen.</p>
+                        <p class="text-slate-500 text-sm mt-1">Traductor con audio operativo y opción para subir imágenes locales generadas con IA o descargadas en tu netbook.</p>
                     </div>
                     <div class="flex items-center gap-2 bg-slate-100 p-1.5 rounded-xl">
                         <button onclick="setGameMode('translator')" id="mode-trans" class="px-3.5 py-2 rounded-lg text-xs font-bold bg-indigo-600 text-white shadow">1. Pictotraductor Escolar</button>
@@ -336,7 +336,7 @@
                     </div>
                 </div>
 
-                <!-- Barra de Accesibilidad y Botón para Agregar Palabra -->
+                <!-- Barra de Accesibilidad y Botón para Agregar Palabra con Imagen Local -->
                 <div class="flex flex-wrap items-center justify-between gap-4 mt-4 p-3 bg-slate-50 rounded-xl border text-xs">
                     <div class="flex flex-wrap items-center gap-3 text-slate-700 font-medium">
                         <span>Accesibilidad Visual:</span>
@@ -349,24 +349,24 @@
                     </div>
                     <div>
                         <button onclick="toggleAddModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-3.5 py-1.5 rounded-lg shadow transition flex items-center gap-1.5">
-                            <span>➕</span> Agregar Pictograma Personalizado
+                            <span>➕</span> Subir Imagen Local / Pictograma
                         </button>
                     </div>
                 </div>
 
-                <!-- PANEL DESPLEGABLE PARA AGREGAR NUEVA PALABRA -->
+                <!-- PANEL PARA SUBIR IMAGEN DESDE LA NETBOOK -->
                 <div id="addModal" class="hidden mt-4 p-5 bg-indigo-50/90 border border-indigo-200 rounded-2xl space-y-3">
-                    <h3 class="font-bold text-indigo-900 text-sm">Registrar nueva palabra o nombre propio en el diccionario local</h3>
-                    <p class="text-xs text-slate-600">Ideal para que los estudiantes agreguen nombres (ej: *fabricio*), términos científicos o expresiones juveniles.</p>
-                    <div class="grid sm:grid-cols-3 gap-2">
-                        <input type="text" id="newWord" placeholder="Palabra (ej: fabricio)" class="border rounded-xl px-3 py-2 text-xs bg-white">
-                        <input type="text" id="newEmoji" placeholder="Emoji representativo (ej: 🧑‍💻)" class="border rounded-xl px-3 py-2 text-xs bg-white">
-                        <button onclick="addNewPicto()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs shadow transition">Guardar en el Diccionario 💾</button>
+                    <h3 class="font-bold text-indigo-900 text-sm">Registrar palabra y subir imagen desde la Netbook o Celular</h3>
+                    <p class="text-xs text-slate-600">Sube cualquier imagen que hayas descargado o generado con IA (JPG, PNG, WebP) para representar la frase de tu trabajo.</p>
+                    <div class="grid sm:grid-cols-3 gap-2 items-center">
+                        <input type="text" id="newWord" placeholder="Palabra (ej: fabricio, celula...)" class="border rounded-xl px-3 py-2 text-xs bg-white">
+                        <input type="file" id="imageFile" accept="image/*" class="border rounded-xl px-2 py-1.5 text-xs bg-white text-slate-600">
+                        <button onclick="addNewPictoWithImage()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs shadow transition">Guardar en Diccionario Local 💾</button>
                     </div>
                     <p id="modalFeedback" class="text-xs font-bold min-h-[20px]"></p>
                 </div>
 
-                <!-- MODO 1: PICTOTRADUCTOR CON SOPORTE ROBUSTO Y PERSONALIZADO -->
+                <!-- MODO 1: PICTOTRADUCTOR -->
                 <div id="section-translator" class="mt-6 space-y-5">
                     <div class="flex flex-col sm:flex-row gap-2">
                         <input type="text" id="phraseInput" onkeyup="translatePhrase()" placeholder="Escribe tu frase (ej: fabricio muestra como resolver el problema matematico)..." class="flex-grow border-2 border-slate-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-indigo-500">
@@ -375,7 +375,7 @@
                     </div>
 
                     <!-- Lienzo de Pictogramas -->
-                    <div id="pictoOutput" class="min-h-[160px] bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-5 flex flex-wrap gap-3 items-center justify-center transition-colors">
+                    <div id="pictoOutput" class="min-h-[170px] bg-slate-50 border-2 border-dashed border-slate-300 rounded-2xl p-5 flex flex-wrap gap-3 items-center justify-center transition-colors">
                         <span class="text-slate-400 text-sm italic">Escribe arriba o selecciona tarjetas del tablero para traducir instantáneamente...</span>
                     </div>
 
@@ -492,7 +492,7 @@
         Proyecto Integrador «Tecnología para Incluir» · 3.° Año Educación Secundaria · Diseño Accesible y Bajo Consumo de Datos.
     </footer>
 
-    <!-- Lógica JavaScript (Diccionario Local + Almacenamiento Local para Estudiantes) -->
+    <!-- Lógica JavaScript (Subida de Imagen Local + Síntesis de Voz Restaurada) -->
     <script>
         function switchTab(tabId) {
             ['proyecto', 'classroom', 'materias', 'picto', 'marco'].forEach(t => {
@@ -527,45 +527,45 @@
 
         // Diccionario base robusto para secundaria
         const basePictoDictionary = {
-            "el": { text: "El", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "la": { text: "La", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "los": { text: "Los", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "las": { text: "Las", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "un": { text: "Un", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "una": { text: "Una", emoji: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "y": { text: "Y", emoji: "➕", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "o": { text: "O", emoji: "🔄", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "de": { text: "De", emoji: "➡️", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "en": { text: "En", emoji: "📍", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "a": { text: "A", emoji: "➡️", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "con": { text: "Con", emoji: "➕", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
-            "pero": { text: "Pero", emoji: "⚖️", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
-            "joven": { text: "Joven", emoji: "🧑‍🎓", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "acciones" },
-            "estaba": { text: "Estaba", emoji: "⏳", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "acciones" },
-            "preocupado": { text: "Preocupado", emoji: "😟", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" },
-            "decidió": { text: "Decidió", emoji: "💡", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
-            "decidio": { text: "Decidió", emoji: "💡", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
-            "buscar": { text: "Buscar", emoji: "🔍", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "acciones" },
-            "ayuda": { text: "Ayuda", emoji: "🤝", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
-            "escuela": { text: "Escuela", emoji: "🏫", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "materias" },
-            "estudiar": { text: "Estudiar", emoji: "📚", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
-            "resolver": { text: "Resolver", emoji: "✏️", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
-            "problema": { text: "Problema", emoji: "🧩", bg: "bg-purple-50 border-purple-300 text-purple-900", cat: "materias" },
-            "matematico": { text: "Matemático", emoji: "📐", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "materias" },
-            "matematica": { text: "Matemática", emoji: "🔢", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "materias" },
-            "muestra": { text: "Muestra", emoji: "👁️", bg: "bg-cyan-50 border-cyan-300 text-cyan-900", cat: "acciones" },
-            "ciencias": { text: "Ciencias", emoji: "🔬", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "materias" },
-            "agua": { text: "Agua", emoji: "💧", bg: "bg-cyan-50 border-cyan-300 text-cyan-900", cat: "materias" },
-            "lengua": { text: "Lengua", emoji: "📖", bg: "bg-purple-50 border-purple-300 text-purple-900", cat: "materias" },
-            "tecnologia": { text: "Tecnología", emoji: "⚙️", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
-            "celular": { text: "Celular", emoji: "📱", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
-            "netbook": { text: "Netbook", emoji: "💻", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
-            "ia": { text: "Inteligencia Artificial", emoji: "🤖", bg: "bg-purple-100 border-purple-300 text-purple-900", cat: "tecno" },
-            "feliz": { text: "Feliz", emoji: "😊", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" },
-            "tranquilo": { text: "Tranquilo", emoji: "😌", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" }
+            "el": { text: "El", type: "emoji", content: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "la": { text: "La", type: "emoji", content: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "los": { text: "Los", type: "emoji", content: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "las": { text: "Las", type: "emoji", content: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "un": { text: "Un", type: "emoji", content: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "una": { text: "Una", type: "emoji", content: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "y": { text: "Y", type: "emoji", content: "➕", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "o": { text: "O", type: "emoji", content: "🔄", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "de": { text: "De", type: "emoji", content: "➡️", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "en": { text: "En", type: "emoji", content: "📍", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "a": { text: "A", type: "emoji", content: "➡️", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "con": { text: "Con", type: "emoji", content: "➕", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
+            "pero": { text: "Pero", type: "emoji", content: "⚖️", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
+            "joven": { text: "Joven", type: "emoji", content: "🧑‍🎓", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "acciones" },
+            "estaba": { text: "Estaba", type: "emoji", content: "⏳", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "acciones" },
+            "preocupado": { text: "Preocupado", type: "emoji", content: "😟", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" },
+            "decidió": { text: "Decidió", type: "emoji", content: "💡", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
+            "decidio": { text: "Decidió", type: "emoji", content: "💡", bg: "bg-amber-50 border-amber-300 text-amber-900", cat: "acciones" },
+            "buscar": { text: "Buscar", type: "emoji", content: "🔍", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "acciones" },
+            "ayuda": { text: "Ayuda", type: "emoji", content: "🤝", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
+            "escuela": { text: "Escuela", type: "emoji", content: "🏫", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "materias" },
+            "estudiar": { text: "Estudiar", type: "emoji", content: "📚", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
+            "resolver": { text: "Resolver", type: "emoji", content: "✏️", bg: "bg-emerald-50 border-emerald-300 text-emerald-900", cat: "acciones" },
+            "problema": { text: "Problema", type: "emoji", content: "🧩", bg: "bg-purple-50 border-purple-300 text-purple-900", cat: "materias" },
+            "matematico": { text: "Matemático", type: "emoji", content: "📐", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "materias" },
+            "matematica": { text: "Matemática", type: "emoji", content: "🔢", bg: "bg-indigo-50 border-indigo-300 text-indigo-900", cat: "materias" },
+            "muestra": { text: "Muestra", type: "emoji", content: "👁️", bg: "bg-cyan-50 border-cyan-300 text-cyan-900", cat: "acciones" },
+            "ciencias": { text: "Ciencias", type: "emoji", content: "🔬", bg: "bg-blue-50 border-blue-300 text-blue-900", cat: "materias" },
+            "agua": { text: "Agua", type: "emoji", content: "💧", bg: "bg-cyan-50 border-cyan-300 text-cyan-900", cat: "materias" },
+            "lengua": { text: "Lengua", type: "emoji", content: "📖", bg: "bg-purple-50 border-purple-300 text-purple-900", cat: "materias" },
+            "tecnologia": { text: "Tecnología", type: "emoji", content: "⚙️", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
+            "celular": { text: "Celular", type: "emoji", content: "📱", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
+            "netbook": { text: "Netbook", type: "emoji", content: "💻", bg: "bg-slate-200 border-slate-400 text-slate-900", cat: "tecno" },
+            "ia": { text: "Inteligencia Artificial", type: "emoji", content: "🤖", bg: "bg-purple-100 border-purple-300 text-purple-900", cat: "tecno" },
+            "feliz": { text: "Feliz", type: "emoji", content: "😊", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" },
+            "tranquilo": { text: "Tranquilo", type: "emoji", content: "😌", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" }
         };
 
-        // Cargar palabras guardadas por los estudiantes en localStorage
+        // Cargar diccionario personalizado guardado en localStorage
         let customDict = JSON.parse(localStorage.getItem('userPictoDict') || '{}');
         let pictoDictionary = { ...basePictoDictionary, ...customDict };
 
@@ -577,36 +577,46 @@
             modal.classList.toggle('hidden');
         }
 
-        function addNewPicto() {
+        // Función para procesar y guardar la imagen local subida desde la netbook o celular
+        function addNewPictoWithImage() {
             const wordInput = document.getElementById('newWord').value.toLowerCase().trim();
-            const emojiInput = document.getElementById('newEmoji').value.trim();
+            const fileInput = document.getElementById('imageFile');
             const feedback = document.getElementById('modalFeedback');
 
-            if (!wordInput || !emojiInput) {
-                feedback.innerHTML = `<span class="text-rose-700">⚠️ Por favor completa ambos campos.</span>`;
+            if (!wordInput || fileInput.files.length === 0) {
+                feedback.innerHTML = `<span class="text-rose-700">⚠️ Por favor escribe la palabra y selecciona una imagen guardada en tu dispositivo.</span>`;
                 return;
             }
 
-            // Guardar en el diccionario local y en el navegador
-            customDict[wordInput] = {
-                text: wordInput.charAt(0).toUpperCase() + wordInput.slice(1),
-                emoji: emojiInput,
-                bg: "bg-emerald-50 border-emerald-300 text-emerald-900",
-                cat: "tecno"
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const base64Image = e.target.result;
+
+                customDict[wordInput] = {
+                    text: wordInput.charAt(0).toUpperCase() + wordInput.slice(1),
+                    type: "image",
+                    content: base64Image,
+                    bg: "bg-emerald-50 border-emerald-300 text-emerald-900",
+                    cat: "tecno"
+                };
+
+                localStorage.setItem('userPictoDict', JSON.stringify(customDict));
+                pictoDictionary = { ...basePictoDictionary, ...customDict };
+
+                feedback.innerHTML = `<span class="text-emerald-700">🎉 ¡Imagen y palabra "${wordInput}" guardadas correctamente!</span>`;
+                document.getElementById('newWord').value = '';
+                fileInput.value = '';
+                renderTouchBoard();
+
+                setTimeout(() => {
+                    document.getElementById('addModal').classList.add('hidden');
+                    feedback.innerHTML = '';
+                }, 2000);
             };
 
-            localStorage.setItem('userPictoDict', JSON.stringify(customDict));
-            pictoDictionary = { ...basePictoDictionary, ...customDict };
-
-            feedback.innerHTML = `<span class="text-emerald-700">🎉 ¡Guardado! "${wordInput}" ya está disponible en el traductor.</span>`;
-            document.getElementById('newWord').value = '';
-            document.getElementById('newEmoji').value = '';
-            renderTouchBoard();
-            
-            setTimeout(() => {
-                document.getElementById('addModal').classList.add('hidden');
-                feedback.innerHTML = '';
-            }, 2000);
+            reader.readAsDataURL(file);
         }
 
         function renderTouchBoard() {
@@ -616,9 +626,13 @@
             
             board.innerHTML = filtered.map(key => {
                 const item = pictoDictionary[key];
+                let visualEl = item.type === 'image' 
+                    ? `<img src="${item.content}" class="w-8 h-8 object-contain rounded">` 
+                    : `<span class="text-2xl">${item.content}</span>`;
+
                 return `
                     <button onclick="addPictoWord('${key}')" class="p-2.5 bg-white border border-slate-200 rounded-xl hover:bg-indigo-50 hover:border-indigo-300 transition flex flex-col items-center gap-1 shadow-sm">
-                        <span class="text-2xl">${item.emoji}</span>
+                        ${visualEl}
                         <span class="text-[11px] font-bold text-slate-700">${isCaps ? item.text.toUpperCase() : item.text}</span>
                     </button>
                 `;
@@ -674,35 +688,44 @@
 
                 let item = pictoDictionary[clean];
                 
-                // Si la palabra no está registrada, crea una tarjeta limpia de respaldo
                 if (!item) {
                     item = { 
                         text: w, 
-                        emoji: "📝", 
+                        type: "emoji", 
+                        content: "📝", 
                         bg: "bg-indigo-50 border-indigo-200 text-indigo-900" 
                     };
                 }
 
                 let labelText = isCaps ? item.text.toUpperCase() : item.text;
+                let visualEl = item.type === 'image'
+                    ? `<div class="w-12 h-12 flex items-center justify-center bg-white rounded-lg p-1 border"><img src="${item.content}" class="w-full h-full object-contain"></div>`
+                    : `<span class="text-3xl my-1">${item.content}</span>`;
+
                 return `
                     <div onclick="speakSingle('${item.text}')" class="cursor-pointer flex flex-col items-center p-3 rounded-2xl border-2 ${item.bg} shadow-sm picto-card min-w-[88px]">
-                        <span class="text-3xl my-1">${item.emoji}</span>
+                        ${visualEl}
                         <span class="text-xs font-extrabold mt-1">${labelText}</span>
                     </div>
                 `;
             }).join('');
         }
 
+        // Sistema de Voz Reparado y Robusto
         function speakSingle(text) {
+            if (!('speechSynthesis' in window)) {
+                alert("Tu navegador no soporta síntesis de voz.");
+                return;
+            }
             window.speechSynthesis.cancel();
-            const u = new SpeechSynthesisUtterance(text);
-            u.lang = 'es-ES';
-            u.rate = parseFloat(document.getElementById('voiceSpeed').value);
-            window.speechSynthesis.speak(u);
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'es-ES';
+            utterance.rate = parseFloat(document.getElementById('voiceSpeed').value);
+            window.speechSynthesis.speak(utterance);
         }
 
         function speakPhrase() {
-            const text = document.getElementById('phraseInput').value;
+            const text = document.getElementById('phraseInput').value.trim();
             if (!text) return;
             speakSingle(text);
         }
