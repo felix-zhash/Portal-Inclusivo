@@ -616,27 +616,45 @@
             return w.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[.,!?¿¡]/g, "");
         }
 
-        function translatePhrase() {
-            const rawText = document.getElementById('phraseInput').value.trim();
-            const output = document.getElementById('pictoOutput');
-            if (!rawText) {
-                output.innerHTML = `<span class="text-slate-400 text-sm italic">Escribe palabras arriba o selecciona tarjetas del tablero inferior...</span>`;
-                return;
-            }
+       function translatePhrase() {
+    const rawText = document.getElementById('phraseInput').value.trim();
+    const output = document.getElementById('pictoOutput');
+    if (!rawText) {
+        output.innerHTML = `<span class="text-slate-400 text-sm italic">Escribe palabras arriba o selecciona tarjetas del tablero inferior...</span>`;
+        return;
+    }
 
-            const words = rawText.split(/\s+/);
-            output.innerHTML = words.map(w => {
-                const clean = normalizeWord(w);
-                const item = pictoDictionary[clean] || { text: w, emoji: "💬", bg: "bg-white border-slate-300 text-slate-800" };
-                let labelText = isCaps ? item.text.toUpperCase() : item.text;
-                return `
-                    <div onclick="speakSingle('${item.text}')" class="cursor-pointer flex flex-col items-center p-3 rounded-2xl border-2 ${item.bg} shadow-sm picto-card min-w-[82px]">
-                        <span class="text-4xl">${item.emoji}</span>
-                        <span class="text-xs font-extrabold mt-1.5">${labelText}</span>
-                    </div>
-                `;
-            }).join('');
+    const words = rawText.split(/\s+/);
+    output.innerHTML = words.map(w => {
+        const clean = normalizeWord(w);
+        
+        // 1. Si la palabra está en nuestro diccionario predeterminado de 3° año:
+        if (pictoDictionary[clean]) {
+            const item = pictoDictionary[clean];
+            let labelText = isCaps ? item.text.toUpperCase() : item.text;
+            return `
+                <div onclick="speakSingle('${item.text}')" class="cursor-pointer flex flex-col items-center p-3 rounded-2xl border-2 ${item.bg} shadow-sm picto-card min-w-[82px]">
+                    <span class="text-4xl">${item.emoji}</span>
+                    <span class="text-xs font-extrabold mt-1.5">${labelText}</span>
+                </div>
+            `;
+        } 
+        
+        // 2. Si es una palabra NUEVA no registrada, la IA o el sistema genera un pictograma automático:
+        else {
+            let labelText = isCaps ? w.toUpperCase() : w;
+            // Generación automática mediante IA visual ligera (Pollinations o servicio público)
+            let autoImageUrl = `https://image.pollinations.ai/prompt/simple%20pictogram%20icon%20flat%20vector%20of%20${encodeURIComponent(w)}?nologo=true`;
+            
+            return `
+                <div onclick="speakSingle('${w}')" class="cursor-pointer flex flex-col items-center p-3 rounded-2xl border-2 bg-indigo-50 border-indigo-200 text-indigo-900 shadow-sm picto-card min-w-[82px]">
+                    <img src="${autoImageUrl}" alt="${w}" class="w-12 h-12 object-contain rounded-lg bg-white p-1" onerror="this.onerror=null; this.src='https://api.iconify.design/fluent-emoji-flat:bulb.svg';">
+                    <span class="text-xs font-extrabold mt-1.5">${labelText}</span>
+                </div>
+            `;
         }
+    }).join('');
+}
 
         function speakSingle(text) {
             window.speechSynthesis.cancel();
