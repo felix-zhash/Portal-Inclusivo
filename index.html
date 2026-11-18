@@ -492,7 +492,7 @@
         Proyecto Integrador «Tecnología para Incluir» · 3.° Año Educación Secundaria · Diseño Accesible y Bajo Consumo de Datos.
     </footer>
 
-    <!-- Lógica JavaScript Operativa -->
+    <!-- Lógica JavaScript Definitiva -->
     <script>
         function switchTab(tabId) {
             ['proyecto', 'classroom', 'materias', 'picto', 'marco'].forEach(t => {
@@ -525,7 +525,7 @@
             }
         }
 
-        // Diccionario base robusto para secundaria
+        // Diccionario base robusto
         const basePictoDictionary = {
             "el": { text: "El", type: "emoji", content: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
             "la": { text: "La", type: "emoji", content: "📌", bg: "bg-slate-50 border-slate-200 text-slate-700", cat: "acciones" },
@@ -565,8 +565,12 @@
             "tranquilo": { text: "Tranquilo", type: "emoji", content: "😌", bg: "bg-pink-50 border-pink-300 text-pink-900", cat: "emociones" }
         };
 
-        // Cargar diccionario personalizado
-        let customDict = JSON.parse(localStorage.getItem('userPictoDict') || '{}');
+        // Cargar almacenamiento local garantizando claves normalizadas
+        let rawCustomDict = JSON.parse(localStorage.getItem('userPictoDict') || '{}');
+        let customDict = {};
+        for (let k in rawCustomDict) {
+            customDict[k.toLowerCase().trim()] = rawCustomDict[k];
+        }
         let pictoDictionary = { ...basePictoDictionary, ...customDict };
 
         let isCaps = false;
@@ -577,9 +581,9 @@
             modal.classList.toggle('hidden');
         }
 
-        // Subida de imagen local corregida y optimizada
+        // Subida de imagen local con normalización de claves
         function addNewPictoWithImage() {
-            const wordInput = document.getElementById('newWord').value.toLowerCase().trim();
+            const wordInput = document.getElementById('newWord').value.trim();
             const fileInput = document.getElementById('imageFile');
             const feedback = document.getElementById('modalFeedback');
 
@@ -588,13 +592,14 @@
                 return;
             }
 
+            const cleanKey = wordInput.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
             const file = fileInput.files[0];
             const reader = new FileReader();
 
             reader.onload = function(e) {
                 const base64Image = e.target.result;
 
-                customDict[wordInput] = {
+                customDict[cleanKey] = {
                     text: wordInput.charAt(0).toUpperCase() + wordInput.slice(1),
                     type: "image",
                     content: base64Image,
@@ -618,7 +623,7 @@
             };
 
             reader.onerror = function() {
-                feedback.innerHTML = `<span class="text-rose-700">❌ Error al leer la imagen. Intenta con otro archivo JPG o PNG.</span>`;
+                feedback.innerHTML = `<span class="text-rose-700">❌ Error al procesar la imagen.</span>`;
             };
 
             reader.readAsDataURL(file);
@@ -653,11 +658,11 @@
             const input = document.getElementById('phraseInput');
             input.value += (input.value ? " " : "") + word;
             translatePhrase();
-            speakSingle(word);
+            speakSingle(pictoDictionary[word] ? pictoDictionary[word].text : word);
         }
 
         function toggleCaps() {
-            isCaps = document.getElementById('capsToggle').checked;
+            isCaps = document.getElementById('capsToggle'].checked;
             translatePhrase();
             renderTouchBoard();
         }
@@ -716,26 +721,29 @@
             }).join('');
         }
 
-        // Síntesis de voz totalmente restaurada y optimizada para navegadores
+        // Síntesis de voz optimizada con activación por gesto de usuario
         function speakSingle(text) {
             if (!('speechSynthesis' in window)) {
-                alert("La síntesis de voz no está soportada en este navegador.");
+                alert("Tu navegador no soporta síntesis de voz.");
                 return;
             }
+            
             window.speechSynthesis.cancel();
             
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'es-ES';
-            utterance.rate = parseFloat(document.getElementById('voiceSpeed').value);
-            
-            // Forzar selección de voz en español si está disponible
-            const voices = window.speechSynthesis.getVoices();
-            const spanishVoice = voices.find(v => v.lang.startsWith('es'));
-            if (spanishVoice) {
-                utterance.voice = spanishVoice;
-            }
+            // Retardo breve para asegurar que el navegador libere el canal de audio anterior
+            setTimeout(() => {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'es-ES';
+                utterance.rate = parseFloat(document.getElementById('voiceSpeed').value);
+                
+                const voices = window.speechSynthesis.getVoices();
+                const spanishVoice = voices.find(v => v.lang.startsWith('es'));
+                if (spanishVoice) {
+                    utterance.voice = spanishVoice;
+                }
 
-            window.speechSynthesis.speak(utterance);
+                window.speechSynthesis.speak(utterance);
+            }, 50);
         }
 
         function speakPhrase() {
@@ -802,7 +810,6 @@
             }
         }
 
-        // Precargar voces del sistema
         if ('speechSynthesis' in window) {
             window.speechSynthesis.onvoiceschanged = () => {
                 window.speechSynthesis.getVoices();
